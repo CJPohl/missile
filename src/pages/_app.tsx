@@ -1,10 +1,12 @@
 import { ChakraProvider } from '@chakra-ui/react';
-
+import { SessionProvider } from 'next-auth/react';
 const App = ({ Component, pageProps }) => {
   return (
-    <ChakraProvider>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <SessionProvider>
+      <ChakraProvider>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </SessionProvider>
   );
 };
 
