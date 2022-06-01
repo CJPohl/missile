@@ -1,11 +1,13 @@
-import { Center, Heading } from '@chakra-ui/react';
-import { signIn } from 'next-auth/react';
+import { Button, Container, Heading } from '@chakra-ui/react';
+import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
+import Header from '../components/header';
 const Home = () => {
-  signIn();
   return (
-    <Center>
+    <Container maxW='container.lg'>
+      <Header />
       <Heading>Hello, World</Heading>
-    </Center>
+    </Container>
   );
 };
 
