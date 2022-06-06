@@ -1,0 +1,7 @@
+.spellBook {
+  background-image: url(../../../public/images/spell-book.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 170rem;
+}

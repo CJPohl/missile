@@ -8,6 +8,7 @@ const theme = extendTheme({
   },
   colors: {
     green: '#70863d',
+    dark: '#212a2f',
   },
 });
 

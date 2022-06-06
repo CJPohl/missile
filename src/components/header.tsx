@@ -21,8 +21,11 @@ const Header = () => {
       justifyContent='center'
       alignItems='center'
       fontFamily='stone'
+      bgColor='white'
       fontSize='lg'
+      color='dark'
       letterSpacing={1}
+      zIndex='banner'
     >
       <Flex
         alignItems='center'
