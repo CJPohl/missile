@@ -33,14 +33,21 @@ const Header = () => {
         justifyContent='space-between'
         maxW='container.xl'
       >
-        <Flex w='15rem'>
-          <Image src={logo} alt='Missile Logo' />
-        </Flex>
+        <NextLink href='/'>
+          <Flex
+            w='15rem'
+            p='3'
+            _hover={{ boxShadow: 'md', borderRadius: '1rem' }}
+            cursor='pointer'
+          >
+            <Image src={logo} alt='Missile Logo' />
+          </Flex>
+        </NextLink>
         <Flex gap={10}>
-          <NextLink href='/' passHref>
+          <NextLink href='/store/spells/all' passHref>
             <Link>STORE</Link>
           </NextLink>
-          <NextLink href='/' passHref>
+          <NextLink href='/store/schools/abjuration' passHref>
             <Link>SCHOOLS</Link>
           </NextLink>
           <NextLink href='/' passHref>

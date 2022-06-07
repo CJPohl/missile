@@ -1,4 +1,5 @@
 import { Button, Flex, Heading, Text } from '@chakra-ui/react';
+import NextLink from 'next/link';
 
 const Subcard = () => {
   return (
@@ -16,12 +17,16 @@ const Subcard = () => {
       </Heading>
       <Text fontSize='2rem'>Pre-prepared spell tomes for every need</Text>
       <Flex gap='2rem' color='dark'>
-        <Button py='2rem' boxShadow='lg' fontSize='1.5rem'>
-          SHOP SPELLS
-        </Button>
-        <Button py='2rem' boxShadow='lg' fontSize='1.5rem'>
-          EXPLORE SCHOOLS
-        </Button>
+        <NextLink href='/store/all'>
+          <Button py='2rem' boxShadow='lg' fontSize='1.5rem'>
+            SHOP SPELLS
+          </Button>
+        </NextLink>
+        <NextLink href='/store/schools/abjuration'>
+          <Button py='2rem' boxShadow='lg' fontSize='1.5rem'>
+            EXPLORE SCHOOLS
+          </Button>
+        </NextLink>
       </Flex>
     </Flex>
   );
