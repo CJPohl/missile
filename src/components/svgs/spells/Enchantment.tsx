@@ -1,12 +1,12 @@
 import { Icon } from '@chakra-ui/react';
 
-const Necromancy = ({ scale }) => {
+const Enchantment = ({ scale }) => {
   return (
     <Icon h={scale} w={scale} viewBox='0 0 386 386' fill='none'>
-      <g clipPath='url(#clip0_3_35)'>
+      <g clipPath='url(#clip0_3_68)'>
         <path
           d='M0 12C0 5.37257 5.37258 0 12 0H374C380.627 0 386 5.37258 386 12V374C386 380.627 380.627 386 374 386H12C5.37257 386 0 380.627 0 374V12Z'
-          fill='#272632'
+          fill='#DD7134'
         />
         <path
           d='M197.78 28.1503L192.5 18.3669L187.22 28.1503L19.644 338.65L14.8679 347.5H24.9241H360.076H370.132L365.356 338.65L197.78 28.1503Z'
@@ -36,7 +36,7 @@ const Necromancy = ({ scale }) => {
         />
       </g>
       <defs>
-        <clipPath id='clip0_3_35'>
+        <clipPath id='clip0_3_68'>
           <path
             d='M0 12C0 5.37257 5.37258 0 12 0H374C380.627 0 386 5.37258 386 12V374C386 380.627 380.627 386 374 386H12C5.37257 386 0 380.627 0 374V12Z'
             fill='white'
@@ -47,4 +47,4 @@ const Necromancy = ({ scale }) => {
   );
 };
 
-export default Necromancy;
+export default Enchantment;

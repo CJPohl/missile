@@ -1,5 +1,6 @@
-import { Flex, Heading } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import axios from 'axios';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import SchoolList from '../../../components/store/spells/school-list';
 import SpellListing from '../../../components/store/spells/spell-listing';
@@ -17,29 +18,38 @@ const Spell = ({ listing }) => {
         fontFamily='normal'
       >
         <SchoolList active={spells} />
-        {/* TODO */}
         <SpellListing listing={listing} />
       </Flex>
     </Flex>
   );
 };
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: [{ params: { spells: 'all' } }],
+    paths: [
+      { params: { spells: 'all' } },
+      { params: { spells: 'abjuration' } },
+      { params: { spells: 'conjuration' } },
+      { params: { spells: 'divination' } },
+      { params: { spells: 'enchantment' } },
+      { params: { spells: 'evocation' } },
+      { params: { spells: 'illusion' } },
+      { params: { spells: 'necromancy' } },
+      { params: { spells: 'transmutation' } },
+    ],
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { data: listing } = await axios.get(
-    `http://localhost:3000/api/store/${params.spells}`
+    `http://localhost:3000/api/store/spells/${params.spells}`
   );
   return {
     props: {
       listing,
     },
   };
-}
+};
 
 export default Spell;

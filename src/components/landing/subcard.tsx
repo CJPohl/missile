@@ -17,7 +17,7 @@ const Subcard = () => {
       </Heading>
       <Text fontSize='2rem'>Pre-prepared spell tomes for every need</Text>
       <Flex gap='2rem' color='dark'>
-        <NextLink href='/store/all'>
+        <NextLink href='/store/spells/all'>
           <Button py='2rem' boxShadow='lg' fontSize='1.5rem'>
             SHOP SPELLS
           </Button>

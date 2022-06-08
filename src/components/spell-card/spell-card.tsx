@@ -1,27 +1,29 @@
-import { Flex, Heading, Icon, Text } from '@chakra-ui/react';
+import { Flex, Heading, Text } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import Necromancy from '../svgs/spells/Necromancy';
+import useSchool from '../../lib/hooks/useSchool';
 
 // Default store spell card item
-const SpellCard = () => {
+const SpellCard = ({ spell, scale }) => {
+  // custom hook to render proper svg
+  const school = useSchool(spell.school, scale);
   return (
-    <NextLink href='/'>
+    <NextLink href={`http://localhost:3000/store/spells/single/${spell._id}`}>
       <Flex
         direction='column'
-        gap='.5rem'
-        borderRadius='1rem'
+        gap='1rem'
+        // borderRadius='1rem'
         p='2rem'
-        boxShadow='xl'
+        boxShadow='md'
         fontFamily='normal'
         color='dark'
         cursor='pointer'
       >
-        <Necromancy />
-        <Heading as='h5' fontFamily='normal'>
-          Spell Name
+        {school}
+        <Heading as='h5' color='dark' fontSize='1.4rem' fontFamily='normal'>
+          {spell.name}
         </Heading>
-        <Text>Spell Desc</Text>
-        <Text>$ Price</Text>
+        <Text noOfLines={[1, 2, 3]}>{spell.desc[0]}</Text>
+        <Text>{spell.price !== 0 ? '$' + spell.price : 'FREE'}</Text>
       </Flex>
     </NextLink>
   );

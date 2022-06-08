@@ -14,6 +14,18 @@ export interface SpellDocument {
   school: string;
 }
 
+// Type check on spell queries
+export interface SpellQuery {
+  _id: string;
+  name: string;
+  desc: string[];
+  range: string;
+  level: number;
+  price: number;
+  school: string;
+  __v: number;
+}
+
 // Schema
 const spellSchema = new mongoose.Schema({
   name: { type: String, required: true },
