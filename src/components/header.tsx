@@ -11,7 +11,12 @@ import Image from 'next/image';
 import NextLink from 'next/link';
 import logo from '../../public/images/Logo.png';
 import { FiSearch, FiShoppingBag, FiUser } from 'react-icons/fi';
+import { useAppSelector } from '../app/hooks';
+import { selectCartQuantity } from '../lib/cart/cartSlice';
+import CartDrawer from './store/cart/cart-drawer';
 const Header = () => {
+  const cartQuantity = useAppSelector(selectCartQuantity);
+
   return (
     <Flex
       as='header'
@@ -63,9 +68,7 @@ const Header = () => {
             <Text>ACCOUNT</Text>
             <Icon as={FiUser} w={5} h={5} />
           </Flex>
-          <Flex>
-            <Icon as={FiShoppingBag} w={5} h={5} />
-          </Flex>
+          <CartDrawer />
         </Flex>
       </Flex>
     </Flex>

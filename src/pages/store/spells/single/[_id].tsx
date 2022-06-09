@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react';
 import axios from 'axios';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import AddBtn from '../../../../components/store/cart/add-btn';
 import useSchool from '../../../../lib/hooks/useSchool';
 import { SpellQuery } from '../../../../lib/models/Spell';
 
@@ -63,11 +64,7 @@ const Spell = ({ spell }) => {
               </Text>
               <Text>{spell.price !== 0 ? '$' + spell.price : 'FREE'}</Text>
             </Flex>
-            <Flex>
-              <Button bgColor='dark' color='white' fontFamily='stone'>
-                ADD TO CART
-              </Button>
-            </Flex>
+            <AddBtn spell={spell} />
           </Flex>
         </Flex>
         <Box p='5rem' bgColor='gray.300'>

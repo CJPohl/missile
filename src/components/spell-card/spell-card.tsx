@@ -18,8 +18,14 @@ const SpellCard = ({ spell, scale }) => {
         color='dark'
         cursor='pointer'
       >
-        {school}
-        <Heading as='h5' color='dark' fontSize='1.4rem' fontFamily='normal'>
+        <Flex alignSelf='center'>{school}</Flex>
+        <Heading
+          as='h5'
+          noOfLines={1}
+          color='dark'
+          fontSize='1.4rem'
+          fontFamily='normal'
+        >
           {spell.name}
         </Heading>
         <Text noOfLines={[1, 2, 3]}>{spell.desc[0]}</Text>
