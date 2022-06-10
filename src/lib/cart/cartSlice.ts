@@ -35,10 +35,14 @@ export const cartSlice = createSlice({
         state.items[index].quantity++;
       }
     },
+    // Empty user's cart
+    emptyCart: (state) => {
+      state.items = [];
+    },
   },
 });
 
-export const { addCart } = cartSlice.actions;
+export const { addCart, emptyCart } = cartSlice.actions;
 
 // Cart quantity selector
 export const selectCartQuantity = (state: RootState) =>
