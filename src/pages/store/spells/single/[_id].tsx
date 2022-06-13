@@ -34,7 +34,7 @@ const Spell = ({ spell }) => {
         gap='5rem'
         w='full'
         maxW='container.xl'
-        py='15rem'
+        py='10rem'
         color='dark'
         fontFamily='normal'
         fontSize='1.3rem'
@@ -67,7 +67,7 @@ const Spell = ({ spell }) => {
             <AddBtn spell={spell} />
           </Flex>
         </Flex>
-        <Box p='5rem' bgColor='gray.300'>
+        <Box p='5rem' bgColor='beige'>
           {descriptions}
         </Box>
         <TableContainer

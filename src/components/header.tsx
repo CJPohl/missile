@@ -20,7 +20,8 @@ const Header = () => {
   return (
     <Flex
       as='header'
-      position='fixed'
+      position='sticky'
+      top='0'
       w='full'
       py={3}
       justifyContent='center'

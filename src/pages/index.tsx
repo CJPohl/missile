@@ -4,6 +4,8 @@ import { GetStaticProps } from 'next';
 import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import ImgSep from '../components/imgSep/imgSep';
+import Email from '../components/landing/email';
+import Endorsements from '../components/landing/endorsements';
 import LandingSelection from '../components/landing/landingSelection';
 import Main from '../components/landing/main';
 
@@ -14,6 +16,8 @@ const Landing = ({ spells }) => {
       <Main />
       <ImgSep />
       <LandingSelection spells={spells} />
+      <Endorsements />
+      <Email />
     </Container>
   );
 };

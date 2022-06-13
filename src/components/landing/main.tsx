@@ -5,7 +5,7 @@ import Subcard from './subcard';
 
 const Main = () => {
   return (
-    <Flex h='100vh' bgGradient='linear(to-b, #FFFFFF, #7392A4)'>
+    <Flex h='90vh' bgGradient='linear(to-b, #FFFFFF, #7392A4)'>
       <Flex
         justifyContent='flex-end'
         alignItems='center'

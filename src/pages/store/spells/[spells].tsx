@@ -10,13 +10,7 @@ const Spell = ({ listing }) => {
   const { spells } = router.query;
   return (
     <Flex justifyContent='center'>
-      <Flex
-        w='full'
-        maxW='container.xl'
-        py='15rem'
-        h='100vh'
-        fontFamily='normal'
-      >
+      <Flex w='full' maxW='container.xl' py='10rem' fontFamily='normal'>
         <SchoolList active={spells} />
         <SpellListing listing={listing} />
       </Flex>
