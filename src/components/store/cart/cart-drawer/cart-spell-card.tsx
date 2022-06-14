@@ -1,6 +1,6 @@
 import { Box, Grid, Td, Text } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import useSchool from '../../../lib/hooks/useSchool';
+import useSchool from '../../../../lib/hooks/useSchool';
 
 const CartSpellCard = ({ quantity, spell, scale }) => {
   const school = useSchool(spell.school, scale);

@@ -3,7 +3,7 @@ import { Button, Flex, Heading, Input, Text } from '@chakra-ui/react';
 const Email = () => {
   return (
     <Flex
-      py='3rem'
+      py='5rem'
       direction='column'
       alignItems='center'
       fontFamily='normal'

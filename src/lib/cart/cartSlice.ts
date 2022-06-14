@@ -3,7 +3,7 @@ import { RootState } from '../../app/store';
 import { SpellQuery } from '../models/Spell';
 
 // item type
-interface Item {
+export interface Item {
   spell: SpellQuery;
   quantity: number;
 }

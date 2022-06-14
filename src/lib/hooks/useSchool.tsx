@@ -8,6 +8,8 @@ import Necromancy from '../../components/svgs/spells/Necromancy';
 import Transmutation from '../../components/svgs/spells/Transmutation';
 
 // Hook to properly equate school svg with spell school
+// school: spell school name
+// scale: number for svg to scale size to
 const useSchool = (school: string, scale: number) => {
   switch (school) {
     case 'abjuration':

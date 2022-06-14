@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, GridItem, Text } from '@chakra-ui/react';
+import { Grid, GridItem } from '@chakra-ui/react';
 import { SpellQuery } from '../../../lib/models/Spell';
 import SpellCard from '../../spell-card/spell-card';
 

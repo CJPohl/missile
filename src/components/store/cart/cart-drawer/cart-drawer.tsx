@@ -8,24 +8,18 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Flex,
-  Table,
-  TableCaption,
-  TableContainer,
-  Tbody,
-  Text,
-  Tr,
   useDisclosure,
 } from '@chakra-ui/react';
 import { useRef } from 'react';
 import { FiShoppingBag } from 'react-icons/fi';
-import { useAppDispatch, useAppSelector } from '../../../app/hooks';
-import { RootState } from '../../../app/store';
+import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
+import { RootState } from '../../../../app/store';
 import {
   emptyCart,
   selectCartPrice,
   selectCartQuantity,
-} from '../../../lib/cart/cartSlice';
-import CartSpellCard from './cart-spell-card';
+} from '../../../../lib/cart/cartSlice';
+import CartTable from './cart-table';
 
 const CartDrawer = () => {
   const cartQuantity = useAppSelector(selectCartQuantity);
@@ -39,11 +33,6 @@ const CartDrawer = () => {
     dispatch(emptyCart());
   };
 
-  const spellCards = cartItems.map((item) => (
-    <Tr key={item.spell._id}>
-      <CartSpellCard quantity={item.quantity} spell={item.spell} scale={55} />
-    </Tr>
-  ));
   return (
     <Flex>
       <Button
@@ -70,17 +59,11 @@ const CartDrawer = () => {
           </DrawerHeader>
 
           <DrawerBody>
-            <TableContainer p='2rem' boxShadow='md' h='full'>
-              <Table variant='simple'>
-                <TableCaption>
-                  <Flex gap='2rem' fontFamily='normal' color='dark'>
-                    <Text>{cartQuantity + ' items in cart'}</Text>
-                    <Text>{'Total: $' + cartTotal}</Text>
-                  </Flex>
-                </TableCaption>
-                <Tbody>{spellCards}</Tbody>
-              </Table>
-            </TableContainer>
+            <CartTable
+              cartItems={cartItems}
+              cartQuantity={cartQuantity}
+              cartTotal={cartTotal}
+            />
           </DrawerBody>
           <DrawerFooter>
             <Flex gap='2rem'>

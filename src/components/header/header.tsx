@@ -1,22 +1,11 @@
-import {
-  Container,
-  Heading,
-  Box,
-  Flex,
-  Link,
-  Text,
-  Icon,
-} from '@chakra-ui/react';
+import { Flex, Link, Text, Icon } from '@chakra-ui/react';
 import Image from 'next/image';
 import NextLink from 'next/link';
-import logo from '../../public/images/Logo.png';
-import { FiSearch, FiShoppingBag, FiUser } from 'react-icons/fi';
-import { useAppSelector } from '../app/hooks';
-import { selectCartQuantity } from '../lib/cart/cartSlice';
-import CartDrawer from './store/cart/cart-drawer';
+import logo from '../../../public/images/Logo.png';
+import { FiSearch, FiUser } from 'react-icons/fi';
+import CartDrawer from '../store/cart/cart-drawer/cart-drawer';
+import SearchModal from './search-modal';
 const Header = () => {
-  const cartQuantity = useAppSelector(selectCartQuantity);
-
   return (
     <Flex
       as='header'
@@ -61,10 +50,7 @@ const Header = () => {
           </NextLink>
         </Flex>
         <Flex alignItems='center' gap={16}>
-          <Flex alignItems='center' gap={2}>
-            <Text>SEARCH</Text>
-            <Icon as={FiSearch} w={5} h={5} />
-          </Flex>
+          <SearchModal />
           <Flex alignItems='center' gap={2}>
             <Text>ACCOUNT</Text>
             <Icon as={FiUser} w={5} h={5} />

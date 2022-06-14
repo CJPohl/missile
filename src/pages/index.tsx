@@ -1,8 +1,6 @@
 import { Container } from '@chakra-ui/react';
 import axios from 'axios';
 import { GetStaticProps } from 'next';
-import { signIn, useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
 import ImgSep from '../components/imgSep/imgSep';
 import Email from '../components/landing/email';
 import Endorsements from '../components/landing/endorsements';

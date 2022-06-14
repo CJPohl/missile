@@ -1,6 +1,7 @@
 import { Flex, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import tiles from '../../../public/images/spell-block.png';
+import SpellBlock from '../spell-block';
 import Subcard from './subcard';
 
 const Main = () => {
@@ -11,11 +12,9 @@ const Main = () => {
         alignItems='center'
         w='full'
         direction='column'
-        gap='3rem'
+        gap='8rem'
       >
-        <Flex w='50rem'>
-          <Image src={tiles} alt='Spell Tiles' />
-        </Flex>
+        <SpellBlock scale={220} />
         <Subcard />
       </Flex>
     </Flex>

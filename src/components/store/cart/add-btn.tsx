@@ -5,6 +5,7 @@ import { addCart } from '../../../lib/cart/cartSlice';
 import { BsBagPlus } from 'react-icons/bs';
 
 // Add to cart button. Dispatches to reducer
+// Plus Toast!
 const AddBtn = ({ spell }) => {
   const dispatch = useAppDispatch();
   const toast = useToast();
