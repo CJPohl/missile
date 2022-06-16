@@ -1,4 +1,4 @@
-import { Flex, Heading, Link } from '@chakra-ui/react';
+import { Flex, Heading, Link, Text } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import isBold from '../../../lib/common/isBold';
 import schoolList from '../../../lib/common/school-list';
@@ -36,6 +36,14 @@ const SchoolList = ({ active }) => {
           All
         </Link>
       </NextLink>
+      <Text
+        fontFamily='normal'
+        color='dark'
+        fontWeight={isBold(active, 'custom')}
+        cursor='default'
+      >
+        Custom
+      </Text>
       {schoolLinks}
     </Flex>
   );

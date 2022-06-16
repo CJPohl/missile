@@ -5,6 +5,7 @@ import logo from '../../../public/images/Logo.png';
 import { FiSearch, FiUser } from 'react-icons/fi';
 import CartDrawer from '../store/cart/cart-drawer/cart-drawer';
 import SearchModal from './search-modal';
+import LinkMenu from './link-menu';
 const Header = () => {
   return (
     <Flex
@@ -39,12 +40,8 @@ const Header = () => {
           </Flex>
         </NextLink>
         <Flex gap={10}>
-          <NextLink href='/store/spells/all' passHref>
-            <Link>STORE</Link>
-          </NextLink>
-          <NextLink href='/store/schools/abjuration' passHref>
-            <Link>SCHOOLS</Link>
-          </NextLink>
+          <LinkMenu type='store' />
+          <LinkMenu type='schools' />
           <NextLink href='/' passHref>
             <Link>ABOUT</Link>
           </NextLink>

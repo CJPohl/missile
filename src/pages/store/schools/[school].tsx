@@ -1,20 +1,41 @@
-import { Flex, Grid } from '@chakra-ui/react';
-import { useRouter } from 'next/router';
+import { Flex } from '@chakra-ui/react';
+import axios from 'axios';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import SchoolDetail from '../../../components/store/schools/school-detail';
 import SchoolList from '../../../components/store/schools/school-list';
+import schoolList from '../../../lib/common/school-list';
 
 // Dynamically show school pages
-const School = () => {
-  const router = useRouter();
-  const { school } = router.query;
+const School = ({ school }) => {
   return (
     <Flex justifyContent='center'>
-      <Flex fontFamily='normal'>
-        <SchoolList active={school} />
-        {/* TODO */}
-        {/* <Grid></Grid> */}
+      <Flex w='full' maxW='container.xl' py='10rem' fontFamily='normal'>
+        <SchoolList active={school.index} />
+        <SchoolDetail school={school} />
       </Flex>
     </Flex>
   );
+};
+
+// Paths for dynamic schools
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = schoolList.map((school: string) => ({
+    params: { school: school },
+  }));
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+// Fetch props
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { data: school } = await axios.get(
+    `http://localhost:3000/api/store/schools/${params.school}`
+  );
+  return {
+    props: school,
+  };
 };
 
 export default School;

@@ -23,13 +23,13 @@ const Landing = ({ spells }) => {
 // Query data for landing spell selection
 export const getStaticProps: GetStaticProps = async () => {
   const { data: spell1 } = await axios.get(
-    'http://localhost:3000/api/store/spells/single/628fc38e9b41a1db1be09fe4'
+    'http://localhost:3000/api/store/spells/single/62ab7f355bd76023556be6e3'
   );
   const { data: spell2 } = await axios.get(
-    'http://localhost:3000/api/store/spells/single/628fc38e9b41a1db1be09fac'
+    'http://localhost:3000/api/store/spells/single/62ab7f335bd76023556be5bd'
   );
   const { data: spell3 } = await axios.get(
-    'http://localhost:3000/api/store/spells/single/628fc38e9b41a1db1be09f66'
+    'http://localhost:3000/api/store/spells/single/62ab7f335bd76023556be5b5'
   );
 
   return {

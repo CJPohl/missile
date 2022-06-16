@@ -4,6 +4,7 @@ import { GetServerSideProps } from 'next';
 import SchoolList from '../../../../components/store/spells/school-list';
 import SpellListing from '../../../../components/store/spells/spell-listing';
 
+// Use search query to pull results rendeirng with server side props
 const Search = ({ listing }) => {
   return (
     <Flex justifyContent='center'>

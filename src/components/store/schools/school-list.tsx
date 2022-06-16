@@ -9,6 +9,8 @@ const SchoolList = ({ active }) => {
     <NextLink key={school} href={`/store/schools/${school}`} passHref>
       <Link
         _focus={{ border: 'none' }}
+        fontFamily='normal'
+        color='dark'
         textTransform='capitalize'
         fontWeight={isBold(active, school)}
       >
@@ -19,7 +21,7 @@ const SchoolList = ({ active }) => {
 
   return (
     <Flex direction='column' fontSize='1.4rem' gap='1rem' fontWeight='light'>
-      <Heading fontFamily='normal' as='h3'>
+      <Heading fontFamily='normal' color='dark' as='h3'>
         Schools
       </Heading>
       {schoolLinks}

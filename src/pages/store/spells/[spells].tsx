@@ -4,7 +4,9 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import SchoolList from '../../../components/store/spells/school-list';
 import SpellListing from '../../../components/store/spells/spell-listing';
+import schoolList from '../../../lib/common/school-list';
 
+// Dynamically render spells
 const Spell = ({ listing }) => {
   const router = useRouter();
   const { spells } = router.query;
@@ -18,23 +20,18 @@ const Spell = ({ listing }) => {
   );
 };
 
+// Paths for dynamic spells
 export const getStaticPaths: GetStaticPaths = async () => {
+  const schoolPaths = schoolList.map((school: string) => ({
+    params: { spells: school },
+  }));
   return {
-    paths: [
-      { params: { spells: 'all' } },
-      { params: { spells: 'abjuration' } },
-      { params: { spells: 'conjuration' } },
-      { params: { spells: 'divination' } },
-      { params: { spells: 'enchantment' } },
-      { params: { spells: 'evocation' } },
-      { params: { spells: 'illusion' } },
-      { params: { spells: 'necromancy' } },
-      { params: { spells: 'transmutation' } },
-    ],
+    paths: [{ params: { spells: 'all' } }, ...schoolPaths],
     fallback: false,
   };
 };
 
+// Fetch props
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { data: listing } = await axios.get(
     `http://localhost:3000/api/store/spells/${params.spells}`
