@@ -6,6 +6,8 @@ import { FiSearch, FiUser } from 'react-icons/fi';
 import CartDrawer from '../store/cart/cart-drawer/cart-drawer';
 import SearchModal from './search-modal';
 import LinkMenu from './link-menu';
+import AuthMenu from './auth-menu';
+import { useSession } from 'next-auth/react';
 const Header = () => {
   return (
     <Flex
@@ -48,10 +50,7 @@ const Header = () => {
         </Flex>
         <Flex alignItems='center' gap={16}>
           <SearchModal />
-          <Flex alignItems='center' gap={2}>
-            <Text>ACCOUNT</Text>
-            <Icon as={FiUser} w={5} h={5} />
-          </Flex>
+          <AuthMenu />
           <CartDrawer />
         </Flex>
       </Flex>

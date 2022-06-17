@@ -12,14 +12,14 @@ import {
 } from '@chakra-ui/react';
 import { useRef } from 'react';
 import { FiShoppingBag } from 'react-icons/fi';
-import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
+import { useAppSelector } from '../../../../app/hooks';
 import { RootState } from '../../../../app/store';
 import {
-  emptyCart,
   selectCartPrice,
   selectCartQuantity,
 } from '../../../../lib/cart/cartSlice';
-import CartTable from './cart-table';
+import CartTable from './components/cart-table';
+import EmptyCartBtn from './components/empty-cart-btn';
 
 const CartDrawer = () => {
   const cartQuantity = useAppSelector(selectCartQuantity);
@@ -27,11 +27,6 @@ const CartDrawer = () => {
   const cartItems = useAppSelector((state: RootState) => state.cart.items);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
-  const dispatch = useAppDispatch();
-
-  const attemptEmpty = () => {
-    dispatch(emptyCart());
-  };
 
   return (
     <Flex>
@@ -67,7 +62,7 @@ const CartDrawer = () => {
           </DrawerBody>
           <DrawerFooter>
             <Flex gap='2rem'>
-              <Button onClick={attemptEmpty}>Empty Cart</Button>
+              <EmptyCartBtn />
               <Button>Checkout</Button>
             </Flex>
           </DrawerFooter>

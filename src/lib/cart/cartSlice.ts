@@ -18,7 +18,7 @@ const initialState: CartState = {
   items: [],
 };
 
-// Cart state reducer
+// Cart state reducer in CRUD structure
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
@@ -39,10 +39,32 @@ export const cartSlice = createSlice({
     emptyCart: (state) => {
       state.items = [];
     },
+    // Delete item from cart
+    deleteItem: (state, action: PayloadAction<SpellQuery>) => {
+      const index = state.items.findIndex(
+        (item) => item.spell._id === action.payload._id
+      );
+      state.items.splice(index, 1);
+    },
+    // Update quantity of item
+    updateItem: (state, action: PayloadAction<Item>) => {
+      const item = state.items.find(
+        (item) => item.spell._id === action.payload.spell._id
+      );
+      item.quantity = action.payload.quantity;
+
+      // Delete item if quantity is 0
+      if (item.quantity === 0) {
+        const index = state.items.findIndex(
+          (item) => item.spell._id === action.payload.spell._id
+        );
+        state.items.splice(index, 1);
+      }
+    },
   },
 });
 
-export const { addCart, emptyCart } = cartSlice.actions;
+export const { addCart, emptyCart, deleteItem, updateItem } = cartSlice.actions;
 
 // Cart quantity selector
 export const selectCartQuantity = (state: RootState) =>

@@ -7,7 +7,7 @@ import {
   Text,
   Tr,
 } from '@chakra-ui/react';
-import { Item } from '../../../../lib/cart/cartSlice';
+import { Item } from '../../../../../lib/cart/cartSlice';
 import CartSpellCard from './cart-spell-card';
 
 // Render item table for cart
