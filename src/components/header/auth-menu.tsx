@@ -10,14 +10,13 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
-import { signIn, signOut, useSession } from 'next-auth/react';
-import Image from 'next/image';
 import { FiUser } from 'react-icons/fi';
+import useSignIn from '../../lib/hooks/useSignIn';
 
 // Auth dropdown
 const AuthMenu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { data: session } = useSession();
+  const { session, authBtn, showAvtr } = useSignIn();
 
   const name = session ? <Text>{session.user.name}</Text> : '';
 
@@ -46,19 +45,15 @@ const AuthMenu = () => {
               w='3rem'
               position='relative'
             >
-              {/* <Image layout='fill' src={session.user.image} /> */}
+              {/* Render user avatar */}
+              {showAvtr()}
             </Flex>
             {name}
           </Flex>
         </MenuItem>
         <MenuDivider />
-        <MenuItem>
-          <Button as='a' onClick={() => signIn()}>
-            Sign In
-          </Button>
-          <Button as='a' onClick={() => signOut()}>
-            Sign Out
-          </Button>
+        <MenuItem _hover={{ backgroundColor: 'white', cursor: 'default' }}>
+          {authBtn}
         </MenuItem>
       </MenuList>
     </Menu>

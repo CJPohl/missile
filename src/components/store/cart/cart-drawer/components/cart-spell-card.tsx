@@ -6,7 +6,6 @@ import ItemCount from './item-count';
 
 const CartSpellCard = ({ quantity, spell, scale }) => {
   const school = useSchool(spell.school, scale);
-
   return (
     <Td fontFamily='normal' color='dark'>
       <Grid

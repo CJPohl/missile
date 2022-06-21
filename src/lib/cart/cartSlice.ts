@@ -77,4 +77,7 @@ export const selectCartPrice = (state: RootState) =>
     0
   );
 
+// Cart items
+export const selectCartItems = (state: RootState) => state.cart.items;
+
 export default cartSlice.reducer;

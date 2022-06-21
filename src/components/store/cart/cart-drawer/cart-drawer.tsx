@@ -10,11 +10,12 @@ import {
   Flex,
   useDisclosure,
 } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 import { useRef } from 'react';
 import { FiShoppingBag } from 'react-icons/fi';
 import { useAppSelector } from '../../../../app/hooks';
-import { RootState } from '../../../../app/store';
 import {
+  selectCartItems,
   selectCartPrice,
   selectCartQuantity,
 } from '../../../../lib/cart/cartSlice';
@@ -24,9 +25,10 @@ import EmptyCartBtn from './components/empty-cart-btn';
 const CartDrawer = () => {
   const cartQuantity = useAppSelector(selectCartQuantity);
   const cartTotal = useAppSelector(selectCartPrice);
-  const cartItems = useAppSelector((state: RootState) => state.cart.items);
+  const cartItems = useAppSelector(selectCartItems);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
+  const router = useRouter();
 
   return (
     <Flex>
@@ -63,7 +65,18 @@ const CartDrawer = () => {
           <DrawerFooter>
             <Flex gap='2rem'>
               <EmptyCartBtn />
-              <Button>Checkout</Button>
+              <Button
+                onClick={() => {
+                  onClose();
+                  router.push('/store/checkout');
+                }}
+                bgColor='dark'
+                fontFamily='normal'
+                color='white'
+                disabled={cartQuantity === 0}
+              >
+                Checkout
+              </Button>
             </Flex>
           </DrawerFooter>
         </DrawerContent>
