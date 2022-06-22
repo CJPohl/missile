@@ -1,20 +1,8 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Table,
-  TableCaption,
-  TableContainer,
-  Tbody,
-  Td,
-  Text,
-  Thead,
-  Tr,
-} from '@chakra-ui/react';
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import axios from 'axios';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import AddBtn from '../../../../components/store/cart/add-btn';
+import SpellDescTable from '../../../../components/store/spells/spell-desc-table';
 import useSchool from '../../../../lib/hooks/useSchool';
 import { SpellQuery } from '../../../../lib/models/Spell';
 
@@ -34,7 +22,7 @@ const Spell = ({ spell }) => {
         gap='5rem'
         w='full'
         maxW='container.xl'
-        py='15rem'
+        py='10rem'
         color='dark'
         fontFamily='normal'
         fontSize='1.3rem'
@@ -67,45 +55,10 @@ const Spell = ({ spell }) => {
             <AddBtn spell={spell} />
           </Flex>
         </Flex>
-        <Box p='5rem' bgColor='gray.300'>
+        <Box p='5rem' bgColor='beige'>
           {descriptions}
         </Box>
-        <TableContainer
-          border='1px'
-          borderColor='gray.300'
-          borderRadius='1rem'
-          fontSize='1rem'
-        >
-          <Table variant='simple'>
-            <TableCaption fontSize='1rem' color='dark' fontFamily='normal'>
-              Other Information
-            </TableCaption>
-            <Thead fontWeight='semibold'>
-              <Tr>
-                <Td>CATEGORY</Td>
-                <Td>DATA</Td>
-              </Tr>
-            </Thead>
-            <Tbody>
-              <Tr>
-                <Td>Name</Td>
-                <Td>{spell.name}</Td>
-              </Tr>
-              <Tr>
-                <Td>Range</Td>
-                <Td>{spell.range}</Td>
-              </Tr>
-              <Tr>
-                <Td>School</Td>
-                <Td textTransform='capitalize'>{spell.school}</Td>
-              </Tr>
-              <Tr>
-                <Td>id</Td>
-                <Td>{spell._id}</Td>
-              </Tr>
-            </Tbody>
-          </Table>
-        </TableContainer>
+        <SpellDescTable spell={spell} />
       </Flex>
     </Flex>
   );

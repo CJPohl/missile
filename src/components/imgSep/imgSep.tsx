@@ -3,7 +3,7 @@ import styles from './imgSep.module.css';
 
 // Spellbook img spacer
 const ImgSep = () => {
-  return <Box py='12rem' className={styles.spellBook} />;
+  return <Box py='15rem' className={styles.spellBook} />;
 };
 
 export default ImgSep;

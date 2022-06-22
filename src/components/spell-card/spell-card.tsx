@@ -11,7 +11,6 @@ const SpellCard = ({ spell, scale }) => {
       <Flex
         direction='column'
         gap='1rem'
-        // borderRadius='1rem'
         p='2rem'
         boxShadow='md'
         fontFamily='normal'

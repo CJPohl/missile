@@ -9,7 +9,7 @@ import {
   REGISTER,
   REHYDRATE,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import storage from './custom-storage';
 import cartReducer from '../lib/cart/cartSlice';
 
 /// CONFIGURE STORE FOR REDUX CART ///

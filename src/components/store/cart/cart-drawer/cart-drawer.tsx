@@ -8,42 +8,28 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Flex,
-  Table,
-  TableCaption,
-  TableContainer,
-  Tbody,
-  Text,
-  Tr,
   useDisclosure,
 } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 import { useRef } from 'react';
 import { FiShoppingBag } from 'react-icons/fi';
-import { useAppDispatch, useAppSelector } from '../../../app/hooks';
-import { RootState } from '../../../app/store';
+import { useAppSelector } from '../../../../app/hooks';
 import {
-  emptyCart,
+  selectCartItems,
   selectCartPrice,
   selectCartQuantity,
-} from '../../../lib/cart/cartSlice';
-import CartSpellCard from './cart-spell-card';
+} from '../../../../lib/cart/cartSlice';
+import CartTable from './components/cart-table';
+import EmptyCartBtn from './components/empty-cart-btn';
 
 const CartDrawer = () => {
   const cartQuantity = useAppSelector(selectCartQuantity);
   const cartTotal = useAppSelector(selectCartPrice);
-  const cartItems = useAppSelector((state: RootState) => state.cart.items);
+  const cartItems = useAppSelector(selectCartItems);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
-  const dispatch = useAppDispatch();
+  const router = useRouter();
 
-  const attemptEmpty = () => {
-    dispatch(emptyCart());
-  };
-
-  const spellCards = cartItems.map((item) => (
-    <Tr key={item.spell._id}>
-      <CartSpellCard quantity={item.quantity} spell={item.spell} scale={55} />
-    </Tr>
-  ));
   return (
     <Flex>
       <Button
@@ -52,6 +38,7 @@ const CartDrawer = () => {
         leftIcon={<FiShoppingBag />}
         onClick={onOpen}
         colorScheme='dark'
+        disabled={cartQuantity === 0}
       >
         Cart
       </Button>
@@ -70,22 +57,27 @@ const CartDrawer = () => {
           </DrawerHeader>
 
           <DrawerBody>
-            <TableContainer p='2rem' boxShadow='md' h='full'>
-              <Table variant='simple'>
-                <TableCaption>
-                  <Flex gap='2rem' fontFamily='normal' color='dark'>
-                    <Text>{cartQuantity + ' items in cart'}</Text>
-                    <Text>{'Total: $' + cartTotal}</Text>
-                  </Flex>
-                </TableCaption>
-                <Tbody>{spellCards}</Tbody>
-              </Table>
-            </TableContainer>
+            <CartTable
+              cartItems={cartItems}
+              cartQuantity={cartQuantity}
+              cartTotal={cartTotal}
+            />
           </DrawerBody>
           <DrawerFooter>
             <Flex gap='2rem'>
-              <Button onClick={attemptEmpty}>Empty Cart</Button>
-              <Button>Checkout</Button>
+              <EmptyCartBtn cartQuantity={cartQuantity} />
+              <Button
+                onClick={() => {
+                  onClose();
+                  router.push('/store/checkout');
+                }}
+                bgColor='dark'
+                fontFamily='normal'
+                color='white'
+                disabled={cartQuantity === 0}
+              >
+                Checkout
+              </Button>
             </Flex>
           </DrawerFooter>
         </DrawerContent>
