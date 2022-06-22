@@ -38,6 +38,7 @@ const CartDrawer = () => {
         leftIcon={<FiShoppingBag />}
         onClick={onOpen}
         colorScheme='dark'
+        disabled={cartQuantity === 0}
       >
         Cart
       </Button>

@@ -20,12 +20,6 @@ const CartTable = ({ cartItems, cartQuantity, cartTotal }) => {
   return (
     <TableContainer p='2rem' boxShadow='md' h='full'>
       <Table variant='simple'>
-        <TableCaption>
-          <Flex gap='2rem' fontFamily='normal' color='dark'>
-            <Text>{cartQuantity + ' items in cart'}</Text>
-            <Text>{'Total: $' + cartTotal}</Text>
-          </Flex>
-        </TableCaption>
         <Tbody>{spellCards}</Tbody>
       </Table>
     </TableContainer>

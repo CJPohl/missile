@@ -41,12 +41,9 @@ const Header = () => {
             <Image src={logo} alt='Missile Logo' />
           </Flex>
         </NextLink>
-        <Flex gap={10}>
+        <Flex gap='4rem'>
           <LinkMenu type='store' />
           <LinkMenu type='schools' />
-          <NextLink href='/' passHref>
-            <Link>ABOUT</Link>
-          </NextLink>
         </Flex>
         <Flex alignItems='center' gap={16}>
           <SearchModal />

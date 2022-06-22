@@ -1,9 +1,21 @@
 import { Button, Flex, Heading, Text } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 import NextLink from 'next/link';
+import { useEffect } from 'react';
+import useFromBottom from '../../lib/hooks/animations/useFromBottom';
 
+// Main card info
 const Subcard = () => {
+  const { controls, variants } = useFromBottom();
+  useEffect(() => {
+    controls.start('visible');
+  });
   return (
     <Flex
+      as={motion.div}
+      animate={controls}
+      variants={variants}
+      initial='hidden'
       direction='column'
       gap='1rem'
       w='full'

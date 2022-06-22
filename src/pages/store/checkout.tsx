@@ -82,7 +82,9 @@ const Checkout = () => {
                 <NextLink href='/'>Return</NextLink>
               </Button>
               <Button
-                onClick={() => stripeSubmit(cartQuantity, cartTotal, cartItems)}
+                onClick={() => {
+                  stripeSubmit(cartQuantity, cartTotal, cartItems);
+                }}
                 bgColor='dark'
                 color='white'
               >
