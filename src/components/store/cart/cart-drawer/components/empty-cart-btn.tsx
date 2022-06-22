@@ -13,7 +13,7 @@ import { useRef } from 'react';
 import { useAppDispatch } from '../../../../../app/hooks';
 import { emptyCart } from '../../../../../lib/cart/cartSlice';
 
-const EmptyCartBtn = () => {
+const EmptyCartBtn = ({ cartQuantity }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = useRef();
   const dispatch = useAppDispatch();
@@ -23,7 +23,13 @@ const EmptyCartBtn = () => {
 
   return (
     <>
-      <Button color='white' fontFamily='normal' bgColor='dark' onClick={onOpen}>
+      <Button
+        color='white'
+        fontFamily='normal'
+        bgColor='dark'
+        onClick={onOpen}
+        disabled={cartQuantity === 0}
+      >
         Empty Cart
       </Button>
       <AlertDialog
@@ -38,16 +44,7 @@ const EmptyCartBtn = () => {
               Do you really want to empty your cart?
             </AlertDialogBody>
             <AlertDialogFooter>
-              <Flex
-                w='full'
-                justifyContent='center'
-                gap='1rem'
-                color='white'
-                fontFamily='normal'
-              >
-                <Button ref={cancelRef} onClick={onClose} bgColor='dark'>
-                  Cancel
-                </Button>
+              <Flex w='full' gap='1rem' color='white' fontFamily='normal'>
                 <Button
                   onClick={() => {
                     attemptEmpty();

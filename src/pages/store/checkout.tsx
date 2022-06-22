@@ -8,111 +8,90 @@ import {
   selectCartQuantity,
 } from '../../lib/cart/cartSlice';
 import useSignIn from '../../lib/hooks/useSignIn';
-import {
-  Box,
-  Button,
-  Flex,
-  Grid,
-  GridItem,
-  Heading,
-  Text,
-} from '@chakra-ui/react';
+import { Button, Flex, Heading } from '@chakra-ui/react';
 import useSchool from '../../lib/hooks/useSchool';
-import { FormEvent, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import axios from 'axios';
-import getStripe from '../../lib/payment/stripe';
+import useStripeCheckout from '../../lib/hooks/useStripeCheckout';
+import CheckoutSpellCard from '../../components/store/checkout/checkout-spell-card';
 
 const Checkout = () => {
   // Handle required Auth
   const { handleNotAuth } = useSignIn();
-  const { status } = useSession({
+  useSession({
     required: true,
     onUnauthenticated() {
       handleNotAuth();
     },
   });
 
-  const router = useRouter();
-
-  // If cart empty redirect
-  useEffect(() => {
-    if (cartItems.length === 0) router.push('/');
-  }, []);
-
   // Get cart info
   const cartQuantity = useAppSelector(selectCartQuantity);
   const cartTotal = useAppSelector(selectCartPrice);
   const cartItems = useAppSelector(selectCartItems);
 
-  const handleSubmit = async () => {
-    // Checkout session
+  // If cart empty redirect
+  const router = useRouter();
+  useEffect(() => {
+    if (cartItems.length === 0) router.push('/');
+  }, [cartItems]);
 
-    const { data: checkoutSession } = await axios.post(
-      '/api/checkout_sessions',
-      { amount: cartTotal, quantity: cartQuantity }
-    );
-    console.log(checkoutSession.id);
-    // Checkout redirect
-    const stripe = await getStripe();
-    const { error } = await stripe.redirectToCheckout({
-      sessionId: checkoutSession.id,
-    });
-    console.warn(error.message);
-  };
+  // Get stripe hook
+  const stripeSubmit = useStripeCheckout();
 
+  // Map items
   const items = cartItems.map((item: Item) => {
     const school = useSchool(item.spell.school, 55);
     return (
-      <Flex key={item.spell._id} alignItems='center' gap='1rem'>
-        <Text>{item.quantity + 'x'}</Text>
-        <Box>{school}</Box>
-        <NextLink
-          href={`http://localhost:3000/store/spells/single/${item.spell._id}`}
-        >
-          <Text
-            cursor='pointer'
-            noOfLines={1}
-            color='dark'
-            fontSize='1rem'
-            fontFamily='normal'
-          >
-            {item.spell.name}
-          </Text>
-        </NextLink>
-      </Flex>
+      <CheckoutSpellCard key={item.spell._id} item={item} school={school} />
     );
   });
 
   return (
-    <Flex justifyContent='center' fontFamily='normal' h='90vh' my='1rem'>
-      <Grid
-        w='full'
-        maxW='container.xl'
-        gridTemplateColumns='1fr 1fr'
-        gap='1rem'
-      >
-        <GridItem boxShadow='md' p='2rem'>
-          <Flex direction='column' w='full' alignItems='center' gap='2rem'>
-            <Heading fontFamily='normal' color='dark'>
-              Your Cart
-            </Heading>
+    <Flex
+      justifyContent='center'
+      fontFamily='normal'
+      h='60rem'
+      my='1rem'
+      pt='1rem'
+    >
+      <Flex w='full' maxW='container.xl' justifyContent='center' gap='1rem'>
+        <Flex
+          direction='column'
+          w='50%'
+          alignItems='center'
+          gap='2rem'
+          boxShadow='md'
+        >
+          <Heading fontFamily='normal' color='dark'>
+            Your Cart
+          </Heading>
+          <Flex
+            direction='column'
+            w='full'
+            h='full'
+            alignItems='center'
+            justifyContent='space-between'
+            pb='1rem'
+          >
             <Flex direction='column' gap='.5rem'>
               {items}
             </Flex>
+            <Flex gap='1rem'>
+              <Button bgColor='dark' color='white'>
+                <NextLink href='/'>Return</NextLink>
+              </Button>
+              <Button
+                onClick={() => stripeSubmit(cartQuantity, cartTotal, cartItems)}
+                bgColor='dark'
+                color='white'
+              >
+                Purchase with Stipe
+              </Button>
+            </Flex>
           </Flex>
-        </GridItem>
-        <GridItem boxShadow='md'>
-          <Flex gap='1rem'>
-            <Button bgColor='dark' color='white'>
-              <NextLink href='/'>Return</NextLink>
-            </Button>
-            <Button onClick={handleSubmit} bgColor='dark' color='white'>
-              Purchase with Stipe
-            </Button>
-          </Flex>
-        </GridItem>
-      </Grid>
+        </Flex>
+      </Flex>
     </Flex>
   );
 };

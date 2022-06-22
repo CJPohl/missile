@@ -64,7 +64,7 @@ const CartDrawer = () => {
           </DrawerBody>
           <DrawerFooter>
             <Flex gap='2rem'>
-              <EmptyCartBtn />
+              <EmptyCartBtn cartQuantity={cartQuantity} />
               <Button
                 onClick={() => {
                   onClose();
