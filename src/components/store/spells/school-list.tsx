@@ -22,9 +22,10 @@ const SchoolList = ({ active }) => {
   return (
     <Flex
       direction='column'
+      textAlign={{base: 'center', md: 'left'}}
       fontFamily='normal'
       color='dark'
-      fontSize='1.4rem'
+      fontSize={{base: '1.2rem', md: '1.4'}}
       gap='1rem'
       fontWeight='light'
     >

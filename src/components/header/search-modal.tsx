@@ -35,7 +35,7 @@ const SearchModal = () => {
         variant='outline'
         leftIcon={<FiSearch />}
         colorScheme='dark'
-        gap={2}
+        gap='.5rem'
       >
         <Text>SEARCH</Text>
       </Button>

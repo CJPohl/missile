@@ -1,20 +1,20 @@
-import { Flex, Text } from '@chakra-ui/react';
-import Image from 'next/image';
-import tiles from '../../../public/images/spell-block.png';
+import { Flex } from '@chakra-ui/react';
+import { useBreakpointValue } from '@chakra-ui/media-query';
 import SpellBlock from '../spell-block';
 import Subcard from './subcard';
 
 const Main = () => {
+  const scale = useBreakpointValue({xl: 220, lg: 150, sm: 120, base: 75})
   return (
-    <Flex h='90vh' bgGradient='linear(to-b, #FFFFFF, #7392A4)'>
+    <Flex bgGradient='linear(to-b, #FFFFFF, #7392A4)' py='2rem'>
       <Flex
         justifyContent='flex-end'
         alignItems='center'
         w='full'
         direction='column'
-        gap='8rem'
+        gap={{base: '2rem', md: '8rem'}}
       >
-        <SpellBlock scale={220} />
+        <SpellBlock scale={scale} />
         <Subcard />
       </Flex>
     </Flex>

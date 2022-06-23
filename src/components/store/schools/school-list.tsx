@@ -20,7 +20,7 @@ const SchoolList = ({ active }) => {
   ));
 
   return (
-    <Flex direction='column' fontSize='1.4rem' gap='1rem' fontWeight='light'>
+    <Flex direction='column' textAlign={{base: 'center', md: 'left'}} fontSize={{base: '1.2rem', md: '1.4'}} gap='1rem' fontWeight='light'>
       <Heading fontFamily='normal' color='dark' as='h3'>
         Schools
       </Heading>

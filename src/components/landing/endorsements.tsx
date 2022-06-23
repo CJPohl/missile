@@ -17,15 +17,15 @@ const Endorsements = () => {
         alignItems='center'
         gap='6rem'
       >
-        <Heading as='h3' fontSize='2rem' fontFamily='news' color='darkgray'>
+        <Heading as='h3' fontSize={{md: '2rem', base: '1.3rem'}} textAlign={{base: 'center', md: 'left'}} fontFamily='news' color='darkgray'>
           "Who would of thought a bunch of old wizards would of made the jocks
           nervous..."
         </Heading>
-        <Flex gap='10rem'>
-          <Icon color='dark' h='7rem' w='7rem' as={FaMedium}></Icon>
-          <Icon color='dark' h='7rem' w='7rem' as={FaReddit}></Icon>
-          <Icon color='dark' h='7rem' w='7rem' as={FaPinterest}></Icon>
-          <Icon color='dark' h='7rem' w='7rem' as={FaEtsy}></Icon>
+        <Flex gap={{base: '2rem', md: '8rem'}}>
+          <Icon color='dark' h={{md: '7rem', base: '4rem'}} w={{md: '7rem', base: '4rem'}} as={FaMedium}></Icon>
+          <Icon color='dark' h={{md: '7rem', base: '4rem'}} w={{md: '7rem', base: '4rem'}} as={FaReddit}></Icon>
+          <Icon color='dark' h={{md: '7rem', base: '4rem'}} w={{md: '7rem', base: '4rem'}} as={FaPinterest}></Icon>
+          <Icon color='dark' h={{md: '7rem', base: '4rem'}} w={{md: '7rem', base: '4rem'}} as={FaEtsy}></Icon>
         </Flex>
       </Flex>
     </Flex>

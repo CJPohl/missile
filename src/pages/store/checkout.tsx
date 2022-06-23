@@ -9,6 +9,7 @@ import {
 } from '../../lib/cart/cartSlice';
 import useSignIn from '../../lib/hooks/useSignIn';
 import { Button, Flex, Heading } from '@chakra-ui/react';
+import { useBreakpointValue } from '@chakra-ui/media-query';
 import useSchool from '../../lib/hooks/useSchool';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
@@ -39,9 +40,10 @@ const Checkout = () => {
   // Get stripe hook
   const stripeSubmit = useStripeCheckout();
 
+  const scale = useBreakpointValue({md: 55, base: 43})
   // Map items
   const items = cartItems.map((item: Item) => {
-    const school = useSchool(item.spell.school, 55);
+    const school = useSchool(item.spell.school, scale);
     return (
       <CheckoutSpellCard key={item.spell._id} item={item} school={school} />
     );
@@ -51,19 +53,19 @@ const Checkout = () => {
     <Flex
       justifyContent='center'
       fontFamily='normal'
-      h='60rem'
+      h={{base: 'auto', md: '60rem'}}
       my='1rem'
-      pt='1rem'
     >
       <Flex w='full' maxW='container.xl' justifyContent='center' gap='1rem'>
         <Flex
           direction='column'
-          w='50%'
+          w={{base: '80%', md: '50%'}}
           alignItems='center'
           gap='2rem'
           boxShadow='md'
+          py='1rem'
         >
-          <Heading fontFamily='normal' color='dark'>
+          <Heading fontFamily='stone' color='dark'>
             Your Cart
           </Heading>
           <Flex
@@ -72,7 +74,7 @@ const Checkout = () => {
             h='full'
             alignItems='center'
             justifyContent='space-between'
-            pb='1rem'
+            gap={{base: '2rem', md: '0'}}
           >
             <Flex direction='column' gap='.5rem'>
               {items}
@@ -88,7 +90,7 @@ const Checkout = () => {
                 bgColor='dark'
                 color='white'
               >
-                Purchase with Stipe
+                Purchase with Stripe
               </Button>
             </Flex>
           </Flex>

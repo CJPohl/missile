@@ -39,6 +39,7 @@ const CartDrawer = () => {
         onClick={onOpen}
         colorScheme='dark'
         disabled={cartQuantity === 0}
+        w='full'
       >
         Cart
       </Button>

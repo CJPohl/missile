@@ -26,7 +26,7 @@ const SpellListing = ({ listing }) => {
         initial='hidden'
         variants={variants}
         px='3rem'
-        gridTemplateColumns='repeat(3, 1fr)'
+        gridTemplateColumns={{base: '', md: 'repeat(3, 1fr)'}}
         gap='2rem'
       >
         {listing.map((spell: SpellQuery) => (

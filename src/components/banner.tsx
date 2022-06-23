@@ -1,8 +1,8 @@
-import { Button, Center, Heading } from '@chakra-ui/react';
+import { Center, Heading } from '@chakra-ui/react';
 
 const Banner = () => {
   return (
-    <Center py='3' bgColor='green'>
+    <Center display={{base: 'none', md: 'flex'}} py='3' bgColor='green' >
       <Heading
         color='#ffffff'
         textTransform='uppercase'

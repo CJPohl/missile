@@ -9,7 +9,7 @@ import schoolList from '../../../lib/common/school-list';
 const School = ({ school }) => {
   return (
     <Flex justifyContent='center'>
-      <Flex w='full' maxW='container.xl' py='10rem' fontFamily='normal'>
+      <Flex direction={{base: 'column', md: 'row'}} w='full' maxW='container.xl' py='10rem' fontFamily='normal'>
         <SchoolList active={school.index} />
         <SchoolDetail school={school} />
       </Flex>

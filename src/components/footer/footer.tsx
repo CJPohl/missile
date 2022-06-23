@@ -1,4 +1,5 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
+import { useBreakpointValue } from '@chakra-ui/media-query';
 import { motion } from 'framer-motion';
 import useFromBottom from '../../lib/hooks/animations/useFromBottom';
 import SpellBlock from '../spell-block';
@@ -6,6 +7,7 @@ import FooterLinks from './footer-links';
 
 // Global footer for site
 const Footer = () => {
+  const scale = useBreakpointValue({xl: 220, lg: 150, sm: 120, base: 75})
   const { ref, controls, variants } = useFromBottom();
   return (
     <Flex
@@ -13,17 +15,17 @@ const Footer = () => {
       alignItems='center'
       color='white'
       bgColor='dark'
-      py='5rem'
+      py={{base: '2rem', md: '5rem'}}
     >
       <Flex
         maxW='container.xl'
         w='full'
         direction='column'
-        gap='6rem'
+        gap={{base: '4rem', md: '6rem'}}
         fontFamily='normal'
       >
-        <Flex alignItems='center' letterSpacing='.1rem'>
-          <FooterLinks />
+        <Flex alignItems='center' direction={{base: 'column', md: 'row'}} letterSpacing='.1rem'>
+            <FooterLinks />
           <Box
             as={motion.div}
             ref={ref}
@@ -31,10 +33,10 @@ const Footer = () => {
             initial='hidden'
             variants={variants}
           >
-            <SpellBlock scale={150} />
+            <SpellBlock scale={scale} />
           </Box>
         </Flex>
-        <Text textAlign='center'>
+        <Text textAlign='center' fontSize={{base: '.7rem', md: '1rem'}}>
           © Missile All Rights Reserved. Terms, Privacy & Accessibility
         </Text>
       </Flex>

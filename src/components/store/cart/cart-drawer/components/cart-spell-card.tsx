@@ -7,7 +7,7 @@ import ItemCount from './item-count';
 const CartSpellCard = ({ quantity, spell, scale }) => {
   const school = useSchool(spell.school, scale);
   return (
-    <Td fontFamily='normal' color='dark'>
+    <Td fontFamily='normal' fontSize={{base: '.8rem', md: '1rem'}} color='dark'>
       <Grid
         gridTemplateColumns='repeat(5, 1fr)'
         alignItems='center'
@@ -22,8 +22,8 @@ const CartSpellCard = ({ quantity, spell, scale }) => {
             cursor='pointer'
             noOfLines={1}
             color='dark'
-            fontSize='1rem'
             fontFamily='normal'
+            fontSize={{base: '.6rem', md: '1rem'}}
           >
             {spell.name}
           </Text>

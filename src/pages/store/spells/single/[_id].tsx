@@ -1,4 +1,5 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
+import { useBreakpointValue } from '@chakra-ui/media-query';
 import axios from 'axios';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import AddBtn from '../../../../components/store/cart/add-btn';
@@ -8,7 +9,8 @@ import { SpellQuery } from '../../../../lib/models/Spell';
 
 // Single spell page
 const Spell = ({ spell }) => {
-  const school = useSchool(spell.school, 400);
+  const scale = useBreakpointValue({md: 400, base: 275})
+  const school = useSchool(spell.school, scale);
 
   let descI = 0;
   const descriptions = spell.desc.map((d: string) => (
@@ -22,15 +24,15 @@ const Spell = ({ spell }) => {
         gap='5rem'
         w='full'
         maxW='container.xl'
-        py='10rem'
+        py={{base: '5rem', md: '10rem'}}
         color='dark'
         fontFamily='normal'
         fontSize='1.3rem'
       >
-        <Flex gap='5rem'>
+        <Flex gap='5rem' alignItems={{base: 'center', md: 'flex-start'}} direction={{base: 'column', md: 'row'}}>
           {school}
-          <Flex direction='column' justifyContent='space-between'>
-            <Flex direction='column' gap='1rem'>
+          <Flex direction='column' h='full' justifyContent='space-between' alignItems={{base: 'center', md: 'flex-start'}} gap={{base: '1rem', md: '0'}}>
+            <Flex direction='column' gap='1rem' textAlign={{base: 'center', md: 'left'}}>
               <Heading
                 as='h2'
                 letterSpacing='.4rem'
@@ -55,7 +57,7 @@ const Spell = ({ spell }) => {
             <AddBtn spell={spell} />
           </Flex>
         </Flex>
-        <Box p='5rem' bgColor='beige'>
+        <Box p={{md: '5rem', base: '3rem'}} fontSize={{base: '1rem', md: '1.2rem'}} bgColor='beige'>
           {descriptions}
         </Box>
         <SpellDescTable spell={spell} />

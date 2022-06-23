@@ -17,27 +17,28 @@ const Subcard = () => {
       variants={variants}
       initial='hidden'
       direction='column'
+      textAlign={{base: 'center', md: 'left'}}
       gap='1rem'
       w='full'
       maxW='container.xl'
-      pb='5rem'
+    
       color='white'
       fontFamily='normal'
     >
-      <Heading as='h2' fontFamily='stone' fontSize='5rem'>
+      <Heading as='h2' fontFamily='stone' fontSize={{base: '3rem' ,lg: '5rem'}}>
         More casting, less sassing
       </Heading>
       <Text fontFamily='stone' fontSize='2rem'>
         Pre-prepared spell tomes for every need
       </Text>
-      <Flex gap='2rem' color='dark'>
+      <Flex direction={{base: 'column', md: 'row'}} alignItems='center' gap={{md: '2rem', base: '1rem'}} color='dark'>
         <NextLink href='/store/spells/all'>
-          <Button py='2rem' boxShadow='lg' fontSize='1.5rem'>
+          <Button py={{md: '2rem', base: '1.5rem'}} w='15rem' boxShadow='lg' fontSize={{md: '1.5rem', base: '1.3rem'}}>
             SHOP SPELLS
           </Button>
         </NextLink>
         <NextLink href='/store/schools/abjuration'>
-          <Button py='2rem' boxShadow='lg' fontSize='1.5rem'>
+          <Button py={{md: '2rem', base: '1.5rem'}} w='15rem' boxShadow='lg' fontSize={{md: '1.5rem', base: '1.3rem'}}>
             EXPLORE SCHOOLS
           </Button>
         </NextLink>

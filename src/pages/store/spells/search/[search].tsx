@@ -8,7 +8,7 @@ import SpellListing from '../../../../components/store/spells/spell-listing';
 const Search = ({ listing }) => {
   return (
     <Flex justifyContent='center'>
-      <Flex w='full' maxW='container.xl' py='10rem' fontFamily='normal'>
+      <Flex direction={{base: 'column', md: 'row'}} w='full' maxW='container.xl' py='10rem' fontFamily='normal'>
         <SchoolList active={'custom'} />
         <SpellListing listing={listing} />
       </Flex>

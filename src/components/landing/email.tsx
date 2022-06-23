@@ -9,14 +9,14 @@ const Email = () => {
       fontFamily='normal'
       gap='2rem'
     >
-      <Heading fontFamily='stone'>Want the latest and Greatest?</Heading>
-      <Text fontSize='1.3rem'>
+      <Heading fontFamily='stone' textAlign={{base: 'center', md: 'left'}}>Want the latest and Greatest?</Heading>
+      <Text textAlign={{base: 'center', md: 'left'}} fontSize='1.3rem'>
         Join our email list and be the first to know about the explosive new
         spell books and a lot of other fun updates.
       </Text>
       <Flex gap='1rem'>
         <Input
-          w='40rem'
+          w={{md: '40rem'}}
           placeholder='Enter Your Email Address'
           bgColor='beige'
         />

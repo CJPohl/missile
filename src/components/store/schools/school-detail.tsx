@@ -1,9 +1,11 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
+import { useBreakpointValue } from '@chakra-ui/media-query';
 import useSchool from '../../../lib/hooks/useSchool';
 
 // Single school info
 const SchoolDetail = ({ school }) => {
-  const schoolSvg = useSchool(school.index, 400);
+  const scale = useBreakpointValue({md: 400, base: 275})
+  const schoolSvg = useSchool(school.index, scale);
   return (
     <Flex w='full' justifyContent='center'>
       <Flex
@@ -15,7 +17,7 @@ const SchoolDetail = ({ school }) => {
         fontFamily='normal'
         fontSize='1.3rem'
       >
-        <Flex gap='5rem'>
+        <Flex gap='5rem' alignItems={{base: 'center', md: 'flex-start'}} direction={{base: 'column', md: 'row'}}>
           {schoolSvg}
           <Flex direction='column' justifyContent='space-between'>
             <Flex
@@ -34,7 +36,7 @@ const SchoolDetail = ({ school }) => {
               >
                 {school.name}
               </Heading>
-              <Box p='2rem' bgColor='beige'>
+              <Box p={{md: '5rem', base: '3rem'}} fontSize={{base: '1rem', md: '1.2rem'}} bgColor='beige'>
                 <Text>{school.desc[0]}</Text>
               </Box>
             </Flex>

@@ -7,18 +7,20 @@ import {
   Text,
   Tr,
 } from '@chakra-ui/react';
+import { useBreakpointValue } from '@chakra-ui/media-query';
 import { Item } from '../../../../../lib/cart/cartSlice';
 import CartSpellCard from './cart-spell-card';
 
 // Render item table for cart
-const CartTable = ({ cartItems, cartQuantity, cartTotal }) => {
+const CartTable = ({ cartItems }) => {
+  const scale = useBreakpointValue({md: 55, base: 43})
   const spellCards = cartItems.map((item: Item) => (
     <Tr key={item.spell._id}>
-      <CartSpellCard quantity={item.quantity} spell={item.spell} scale={55} />
+      <CartSpellCard quantity={item.quantity} spell={item.spell} scale={scale} />
     </Tr>
   ));
   return (
-    <TableContainer p='2rem' boxShadow='md' h='full'>
+    <TableContainer p={{base: '0', md: '2rem'}} boxShadow='md' h='full'>
       <Table variant='simple'>
         <Tbody>{spellCards}</Tbody>
       </Table>
