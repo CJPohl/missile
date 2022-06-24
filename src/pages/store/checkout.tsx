@@ -53,8 +53,9 @@ const Checkout = () => {
     <Flex
       justifyContent='center'
       fontFamily='normal'
-      h={{base: 'auto', md: '60rem'}}
-      my='1rem'
+      h={{base: 'calc(100vh - 12rem)', sm: 'calc(100vh - 6rem)', md: 'calc(100vh - 8rem)'}}
+      py='2rem'
+    
     >
       <Flex w='full' maxW='container.xl' justifyContent='center' gap='1rem'>
         <Flex
@@ -74,7 +75,8 @@ const Checkout = () => {
             h='full'
             alignItems='center'
             justifyContent='space-between'
-            gap={{base: '2rem', md: '0'}}
+            gap={{base: '2rem', md: '1rem'}}
+            overflow='scroll'
           >
             <Flex direction='column' gap='.5rem'>
               {items}

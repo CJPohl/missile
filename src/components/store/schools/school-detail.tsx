@@ -33,6 +33,8 @@ const SchoolDetail = ({ school }) => {
                 color='dark'
                 fontFamily='stone'
                 fontSize='3rem'
+                textAlign='center'
+                
               >
                 {school.name}
               </Heading>

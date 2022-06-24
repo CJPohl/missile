@@ -21,11 +21,11 @@ const Subcard = () => {
       gap='1rem'
       w='full'
       maxW='container.xl'
-    
+      px={{sm: '2rem', xl: '0'}}
       color='white'
       fontFamily='normal'
     >
-      <Heading as='h2' fontFamily='stone' fontSize={{base: '3rem' ,lg: '5rem'}}>
+      <Heading as='h2' fontFamily='stone' fontSize={{base: '3rem' ,xl: '5rem'}}>
         More casting, less sassing
       </Heading>
       <Text fontFamily='stone' fontSize='2rem'>

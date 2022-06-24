@@ -17,7 +17,7 @@ const SpellBlock = ({ scale }) => {
   });
 
   return (
-    <Grid gridTemplateColumns='1fr 1fr 1fr 1fr' gap='1rem'>
+    <Grid  gridTemplateColumns='1fr 1fr 1fr 1fr' gap='1rem'>
       {svgs}
     </Grid>
   );

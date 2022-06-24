@@ -4,6 +4,7 @@ const Email = () => {
   return (
     <Flex
       py='5rem'
+      px={{base: '2rem', xl: '0'}}
       direction='column'
       alignItems='center'
       fontFamily='normal'
@@ -16,7 +17,7 @@ const Email = () => {
       </Text>
       <Flex gap='1rem'>
         <Input
-          w={{md: '40rem'}}
+          w={{lg: '40rem'}}
           placeholder='Enter Your Email Address'
           bgColor='beige'
         />

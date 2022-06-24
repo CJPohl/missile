@@ -25,6 +25,7 @@ const Spell = ({ spell }) => {
         w='full'
         maxW='container.xl'
         py={{base: '5rem', md: '10rem'}}
+        px={{base: '2rem', xl: '0'}}
         color='dark'
         fontFamily='normal'
         fontSize='1.3rem'

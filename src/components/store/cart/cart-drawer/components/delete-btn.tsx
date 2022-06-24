@@ -21,7 +21,7 @@ const DeleteBtn = ({ spell }) => {
     >
       <IconButton
         aria-label='delete item'
-        size='sm'
+        size={{base: 'xs', md: 'sm'}}
         bgColor='dark'
         color='white'
         icon={<FiX />}

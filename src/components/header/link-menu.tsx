@@ -34,7 +34,7 @@ const LinkMenu = ({ type }) => {
   return (
     <Menu isOpen={isOpen}>
       <MenuButton
-      fontSize={{base: '1rem', md: '1.2rem'}}
+      fontSize={{base: '1rem', lg: '1.2rem'}}
         onMouseEnter={onOpen}
         onMouseLeave={onClose}
         onClick={

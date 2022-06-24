@@ -25,7 +25,7 @@ const SchoolList = ({ active }) => {
       textAlign={{base: 'center', md: 'left'}}
       fontFamily='normal'
       color='dark'
-      fontSize={{base: '1.2rem', md: '1.4'}}
+      fontSize={{base: '1.2rem', md: '1.4rem'}}
       gap='1rem'
       fontWeight='light'
     >

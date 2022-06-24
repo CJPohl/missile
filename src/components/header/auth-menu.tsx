@@ -24,11 +24,8 @@ const AuthMenu = () => {
   return (
     <Menu isOpen={isOpen}>
       <MenuButton as='a' onMouseEnter={onOpen} onMouseLeave={onClose}>
-        <Button variant='outline' borderColor='dark'>
-          <Flex alignItems='center' gap='1rem'>
-            <Icon as={FiUser} w={5} h={5} />
-            <Text>ACCOUNT</Text>
-          </Flex>
+        <Button leftIcon={<FiUser/>} variant='ghost'>
+            <Text borderColor='dark' fontSize={{base: '.8rem', lg: '1rem'}}>ACCOUNT</Text>
         </Button>
       </MenuButton>
       <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>

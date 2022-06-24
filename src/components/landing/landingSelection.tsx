@@ -20,12 +20,13 @@ const LandingSelection = ({ spells }) => {
       alignItems='center'
       gap='5rem'
       w='full'
+      px={{base: '2rem', xl: '0'}}
       
     >
       <Heading fontFamily='stone' color='dark'>
         A Scholarly Selection{' '}
       </Heading>
-      <Grid gridTemplateColumns={{md: 'repeat(3, 1fr)'}} 
+      <Grid gridTemplateColumns={{lg: 'repeat(3, 1fr)'}} 
        gap='2rem' maxW='container.xl'>
         <SpellCard scale={60} spell={spells[0]} />
         <SpellCard scale={60} spell={spells[1]} />

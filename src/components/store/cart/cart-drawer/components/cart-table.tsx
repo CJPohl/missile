@@ -13,16 +13,16 @@ import CartSpellCard from './cart-spell-card';
 
 // Render item table for cart
 const CartTable = ({ cartItems }) => {
-  const scale = useBreakpointValue({md: 55, base: 43})
+  const scale = useBreakpointValue({md: 55, base: 35})
   const spellCards = cartItems.map((item: Item) => (
-    <Tr key={item.spell._id}>
+    <Tr overflow='scroll' key={item.spell._id}>
       <CartSpellCard quantity={item.quantity} spell={item.spell} scale={scale} />
     </Tr>
   ));
   return (
-    <TableContainer p={{base: '0', md: '2rem'}} boxShadow='md' h='full'>
-      <Table variant='simple'>
-        <Tbody>{spellCards}</Tbody>
+    <TableContainer p={{base: '0', md: '2rem'}} boxShadow='md' h='full' >
+      <Table  variant='simple'>
+        <Tbody >{spellCards}</Tbody>
       </Table>
     </TableContainer>
   );

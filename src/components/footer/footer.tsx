@@ -7,7 +7,7 @@ import FooterLinks from './footer-links';
 
 // Global footer for site
 const Footer = () => {
-  const scale = useBreakpointValue({xl: 220, lg: 150, sm: 120, base: 75})
+  const scale = useBreakpointValue({xl: 150, md: 120, sm: 90, base: 75})
   const { ref, controls, variants } = useFromBottom();
   return (
     <Flex
@@ -24,7 +24,7 @@ const Footer = () => {
         gap={{base: '4rem', md: '6rem'}}
         fontFamily='normal'
       >
-        <Flex alignItems='center' direction={{base: 'column', md: 'row'}} letterSpacing='.1rem'>
+        <Flex alignItems='center' direction={{base: 'column', xl: 'row'}} letterSpacing='.1rem' gap={{base: '2rem', xl: '0'}}>
             <FooterLinks />
           <Box
             as={motion.div}
