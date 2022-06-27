@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useState, KeyboardEvent } from 'react';
+import { useState } from 'react';
 
 // Store search hook
 const useSearch = () => {

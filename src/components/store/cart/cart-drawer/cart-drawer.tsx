@@ -1,5 +1,6 @@
 import {
   Button,
+  Text,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -16,7 +17,6 @@ import { FiShoppingBag } from 'react-icons/fi';
 import { useAppSelector } from '../../../../app/hooks';
 import {
   selectCartItems,
-  selectCartPrice,
   selectCartQuantity,
 } from '../../../../lib/cart/cartSlice';
 import CartTable from './components/cart-table';
@@ -24,7 +24,6 @@ import EmptyCartBtn from './components/empty-cart-btn';
 
 const CartDrawer = () => {
   const cartQuantity = useAppSelector(selectCartQuantity);
-  const cartTotal = useAppSelector(selectCartPrice);
   const cartItems = useAppSelector(selectCartItems);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
@@ -34,14 +33,14 @@ const CartDrawer = () => {
     <Flex>
       <Button
         ref={btnRef}
-        variant='outline'
+        variant={{base: 'ghost', lg: 'outline'}}
         leftIcon={<FiShoppingBag />}
         onClick={onOpen}
         colorScheme='dark'
         disabled={cartQuantity === 0}
         w='full'
       >
-        Cart
+        <Text fontSize={{base: '.8rem', lg: '1rem'}}>Cart</Text>
       </Button>
       <Drawer
         isOpen={isOpen}
@@ -60,8 +59,6 @@ const CartDrawer = () => {
           <DrawerBody>
             <CartTable
               cartItems={cartItems}
-              cartQuantity={cartQuantity}
-              cartTotal={cartTotal}
             />
           </DrawerBody>
           <DrawerFooter>

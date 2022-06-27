@@ -4,7 +4,7 @@ import useSchool from '../../../lib/hooks/useSchool';
 
 // Single school info
 const SchoolDetail = ({ school }) => {
-  const scale = useBreakpointValue({md: 400, base: 275})
+  const scale = useBreakpointValue({ md: 400, base: 275 });
   const schoolSvg = useSchool(school.index, scale);
   return (
     <Flex w='full' justifyContent='center'>
@@ -17,7 +17,11 @@ const SchoolDetail = ({ school }) => {
         fontFamily='normal'
         fontSize='1.3rem'
       >
-        <Flex gap='5rem' alignItems={{base: 'center', md: 'flex-start'}} direction={{base: 'column', md: 'row'}}>
+        <Flex
+          gap='5rem'
+          alignItems={{ base: 'center', lg: 'flex-start' }}
+          direction={{ base: 'column', lg: 'row' }}
+        >
           {schoolSvg}
           <Flex direction='column' justifyContent='space-between'>
             <Flex
@@ -33,10 +37,15 @@ const SchoolDetail = ({ school }) => {
                 color='dark'
                 fontFamily='stone'
                 fontSize='3rem'
+                textAlign='center'
               >
                 {school.name}
               </Heading>
-              <Box p={{md: '5rem', base: '3rem'}} fontSize={{base: '1rem', md: '1.2rem'}} bgColor='beige'>
+              <Box
+                p={{ md: '5rem', base: '3rem' }}
+                fontSize={{ base: '1rem', lg: '1.2rem' }}
+                bgColor='beige'
+              >
                 <Text>{school.desc[0]}</Text>
               </Box>
             </Flex>

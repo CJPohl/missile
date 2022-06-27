@@ -10,7 +10,7 @@ import Main from '../components/landing/main';
 // Site landing page
 const Landing = ({ spells }) => {
   return (
-    <Container p={0} maxW='100vw'>
+    <Container p='0rem' maxW='100vw'>
       <Main />
       <ImgSep />
       <LandingSelection spells={spells} />

@@ -1,7 +1,5 @@
 import { Grid, GridItem } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
 import schoolList from '../lib/common/school-list';
-import useFromBottom from '../lib/hooks/animations/useFromBottom';
 import useSchool from '../lib/hooks/useSchool';
 
 // Svg block for spell schools

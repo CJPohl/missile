@@ -1,4 +1,4 @@
-import { Button, Image, useToast } from '@chakra-ui/react';
+import { Button, Avatar, useToast } from '@chakra-ui/react';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
@@ -11,7 +11,7 @@ const useSignIn = () => {
   // If session return avtr pic
   const showAvtr = () => {
     if (session) {
-      return <Image borderRadius='50%' src={session.user.image} />;
+      return <Avatar src={session.user.image} />;
     } else {
       ('');
     }
