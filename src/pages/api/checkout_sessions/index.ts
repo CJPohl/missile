@@ -9,7 +9,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     // Parse amount, quantity from body
-    const { amount, quantity, items } = req.body;
+    const { items } = req.body;
 
     // Map cart items for stripe line_items format
     const cartItems = items.map((item: Item) => ({
@@ -25,7 +25,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       mode: 'payment',
       payment_method_types: ['card'],
       line_items: [...cartItems],
-      success_url: 'http://localhost:3000/',
+      success_url: 'http://localhost:3000/store/success',
       cancel_url: 'http://localhost:3000/store/checkout',
     };
 

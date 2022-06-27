@@ -1,4 +1,4 @@
-import { Box, CloseButton, IconButton } from '@chakra-ui/react';
+import { Box, IconButton } from '@chakra-ui/react';
 import { FiX } from 'react-icons/fi';
 import { useAppDispatch } from '../../../../../app/hooks';
 import { deleteItem } from '../../../../../lib/cart/cartSlice';
@@ -21,7 +21,7 @@ const DeleteBtn = ({ spell }) => {
     >
       <IconButton
         aria-label='delete item'
-        size={{base: 'xs', md: 'sm'}}
+        size={{ base: 'xs', md: 'sm' }}
         bgColor='dark'
         color='white'
         icon={<FiX />}

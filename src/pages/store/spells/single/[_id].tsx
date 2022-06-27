@@ -9,7 +9,7 @@ import { SpellQuery } from '../../../../lib/models/Spell';
 
 // Single spell page
 const Spell = ({ spell }) => {
-  const scale = useBreakpointValue({md: 400, base: 275})
+  const scale = useBreakpointValue({ md: 400, base: 275 });
   const school = useSchool(spell.school, scale);
 
   let descI = 0;
@@ -24,16 +24,30 @@ const Spell = ({ spell }) => {
         gap='5rem'
         w='full'
         maxW='container.xl'
-        py={{base: '5rem', md: '10rem'}}
-        px={{base: '2rem', xl: '0'}}
+        py={{ base: '5rem', md: '10rem' }}
+        px={{ base: '2rem', xl: '0' }}
         color='dark'
         fontFamily='normal'
         fontSize='1.3rem'
       >
-        <Flex gap='5rem' alignItems={{base: 'center', md: 'flex-start'}} direction={{base: 'column', md: 'row'}}>
+        <Flex
+          gap='5rem'
+          alignItems={{ base: 'center', md: 'flex-start' }}
+          direction={{ base: 'column', md: 'row' }}
+        >
           {school}
-          <Flex direction='column' h='full' justifyContent='space-between' alignItems={{base: 'center', md: 'flex-start'}} gap={{base: '1rem', md: '0'}}>
-            <Flex direction='column' gap='1rem' textAlign={{base: 'center', md: 'left'}}>
+          <Flex
+            direction='column'
+            h='full'
+            justifyContent='space-between'
+            alignItems={{ base: 'center', md: 'flex-start' }}
+            gap={{ base: '1rem', md: '0' }}
+          >
+            <Flex
+              direction='column'
+              gap='1rem'
+              textAlign={{ base: 'center', md: 'left' }}
+            >
               <Heading
                 as='h2'
                 letterSpacing='.4rem'
@@ -58,7 +72,11 @@ const Spell = ({ spell }) => {
             <AddBtn spell={spell} />
           </Flex>
         </Flex>
-        <Box p={{md: '5rem', base: '3rem'}} fontSize={{base: '1rem', md: '1.2rem'}} bgColor='beige'>
+        <Box
+          p={{ lg: '5rem', base: '3rem' }}
+          fontSize={{ base: '1rem', lg: '1.2rem' }}
+          bgColor='beige'
+        >
           {descriptions}
         </Box>
         <SpellDescTable spell={spell} />

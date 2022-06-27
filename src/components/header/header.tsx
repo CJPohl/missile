@@ -1,4 +1,4 @@
-import { Flex, Box } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import logo from '../../../public/images/Logo.png';
@@ -10,11 +10,11 @@ const Header = () => {
   return (
     <Flex
       as='header'
-      h={{base: '12rem', sm: '6rem'}}
-      position={{md: 'sticky'}}
+      h={{ base: '12rem', sm: '6rem' }}
+      position={{ md: 'sticky' }}
       top='0'
       w='full'
-      px={{sm: '2rem', xl: '0'}}
+      px={{ sm: '2rem', xl: '0' }}
       justifyContent='center'
       alignItems='center'
       fontFamily='stone'
@@ -25,31 +25,29 @@ const Header = () => {
       zIndex='banner'
     >
       <Flex
-      direction={{base: 'column', sm: 'row'}}
+        direction={{ base: 'column', sm: 'row' }}
         alignItems='center'
         w='full'
         justifyContent='space-between'
         maxW='container.xl'
       >
         <NextLink href='/'>
-          <Flex
-            w={{lg: '15rem', base: '10rem'}}
-            cursor='pointer'
-          >
+          <Flex w={{ lg: '15rem', base: '10rem' }} cursor='pointer'>
             <Image src={logo} alt='Missile Logo' />
           </Flex>
         </NextLink>
-        <Flex 
-        display={{base: 'none', md: 'flex'}}
-        w={{md: '10rem', lg: '12rem'}}
-        justifyContent='space-between'
+        <Flex
+          display={{ base: 'none', md: 'flex' }}
+          w={{ md: '10rem', lg: '12rem' }}
+          justifyContent='space-between'
         >
           <LinkMenu type='store' />
           <LinkMenu type='schools' />
         </Flex>
-        <Flex 
-        direction={{base: 'column', sm: 'row'}}
-         gap={{base: '.2rem', md: '2rem'}}>
+        <Flex
+          direction={{ base: 'column', sm: 'row' }}
+          gap={{ base: '.2rem', md: '2rem' }}
+        >
           <SearchModal />
           <AuthMenu />
           <CartDrawer />

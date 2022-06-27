@@ -9,8 +9,7 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
-import { useRouter } from 'next/router';
-import { useRef, useState, KeyboardEvent } from 'react';
+import { useRef } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import useSearch from '../../lib/hooks/useSearch';
 
@@ -32,13 +31,11 @@ const SearchModal = () => {
     <>
       <Button
         onClick={onOpen}
-        variant={{base: 'ghost', lg: 'outline'}}
+        variant={{ base: 'ghost', lg: 'outline' }}
         leftIcon={<FiSearch />}
         colorScheme='dark'
-        
-        
       >
-        <Text fontSize={{base: '.8rem', lg: '1rem'}}>SEARCH</Text>
+        <Text fontSize={{ base: '.8rem', lg: '1rem' }}>SEARCH</Text>
       </Button>
       <Modal
         isOpen={isOpen}

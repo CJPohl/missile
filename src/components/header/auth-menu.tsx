@@ -1,7 +1,6 @@
 import {
   Button,
   Flex,
-  Icon,
   Menu,
   MenuButton,
   MenuDivider,
@@ -24,8 +23,10 @@ const AuthMenu = () => {
   return (
     <Menu isOpen={isOpen}>
       <MenuButton as='a' onMouseEnter={onOpen} onMouseLeave={onClose}>
-        <Button leftIcon={<FiUser/>} variant='ghost'>
-            <Text borderColor='dark' fontSize={{base: '.8rem', lg: '1rem'}}>ACCOUNT</Text>
+        <Button leftIcon={<FiUser />} variant='ghost'>
+          <Text borderColor='dark' fontSize={{ base: '.8rem', lg: '1rem' }}>
+            ACCOUNT
+          </Text>
         </Button>
       </MenuButton>
       <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>

@@ -12,7 +12,14 @@ const Spell = ({ listing }) => {
   const { spells } = router.query;
   return (
     <Flex justifyContent='center'>
-      <Flex direction={{base: 'column', md: 'row'}} w='full' maxW='container.xl'  py={{base: '5rem', md: '5rem'}} fontFamily='normal'>
+      <Flex
+        direction='column'
+        gap='3rem'
+        w='full'
+        maxW='container.xl'
+        py={{ base: '5rem', lg: '5rem' }}
+        fontFamily='normal'
+      >
         <SchoolList active={spells} />
         <SpellListing listing={listing} />
       </Flex>

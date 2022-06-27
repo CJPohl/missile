@@ -2,7 +2,7 @@ import { Center, Heading } from '@chakra-ui/react';
 
 const Banner = () => {
   return (
-    <Center display={{base: 'none', md: 'flex'}} h='2rem' bgColor='green' >
+    <Center display={{ base: 'none', md: 'flex' }} h='2rem' bgColor='green'>
       <Heading
         color='#ffffff'
         textTransform='uppercase'

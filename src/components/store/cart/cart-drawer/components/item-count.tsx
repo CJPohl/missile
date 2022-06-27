@@ -19,7 +19,7 @@ const ItemCount = ({ item }) => {
     <Flex alignItems='center' gap='1rem' p='.5rem'>
       <Flex direction='column' gap='.5rem'>
         <IconButton
-          size={{base: 'xs', md: 'sm'}}
+          size={{ base: 'xs', md: 'sm' }}
           bgColor='dark'
           color='white'
           aria-label='add item quantity'
@@ -30,7 +30,7 @@ const ItemCount = ({ item }) => {
           }}
         />
         <IconButton
-          size={{base: 'xs', md: 'sm'}}
+          size={{ base: 'xs', md: 'sm' }}
           bgColor='dark'
           color='white'
           aria-label='add item quantity'

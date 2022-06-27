@@ -7,7 +7,7 @@ import FooterLinks from './footer-links';
 
 // Global footer for site
 const Footer = () => {
-  const scale = useBreakpointValue({xl: 150, md: 120, sm: 90, base: 75})
+  const scale = useBreakpointValue({ xl: 150, md: 120, sm: 90, base: 75 });
   const { ref, controls, variants } = useFromBottom();
   return (
     <Flex
@@ -15,17 +15,22 @@ const Footer = () => {
       alignItems='center'
       color='white'
       bgColor='dark'
-      py={{base: '2rem', md: '5rem'}}
+      py={{ base: '2rem', md: '5rem' }}
     >
       <Flex
         maxW='container.xl'
         w='full'
         direction='column'
-        gap={{base: '4rem', md: '6rem'}}
+        gap={{ base: '4rem', md: '6rem' }}
         fontFamily='normal'
       >
-        <Flex alignItems='center' direction={{base: 'column', xl: 'row'}} letterSpacing='.1rem' gap={{base: '2rem', xl: '0'}}>
-            <FooterLinks />
+        <Flex
+          alignItems='center'
+          direction={{ base: 'column', xl: 'row' }}
+          letterSpacing='.1rem'
+          gap={{ base: '2rem', xl: '0' }}
+        >
+          <FooterLinks />
           <Box
             as={motion.div}
             ref={ref}
@@ -36,7 +41,7 @@ const Footer = () => {
             <SpellBlock scale={scale} />
           </Box>
         </Flex>
-        <Text textAlign='center' fontSize={{base: '.7rem', md: '1rem'}}>
+        <Text textAlign='center' fontSize={{ base: '.7rem', md: '1rem' }}>
           © Missile All Rights Reserved. Terms, Privacy & Accessibility
         </Text>
       </Flex>

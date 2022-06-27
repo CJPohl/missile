@@ -11,7 +11,7 @@ const useSignIn = () => {
   // If session return avtr pic
   const showAvtr = () => {
     if (session) {
-      return <Avatar  src={session.user.image} />;
+      return <Avatar src={session.user.image} />;
     } else {
       ('');
     }

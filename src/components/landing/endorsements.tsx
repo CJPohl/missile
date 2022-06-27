@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Icon } from '@chakra-ui/react';
+import { Flex, Heading, Icon } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { FaMedium, FaReddit, FaPinterest, FaEtsy } from 'react-icons/fa';
 import useFromBottom from '../../lib/hooks/animations/useFromBottom';
@@ -16,17 +16,43 @@ const Endorsements = () => {
         direction='column'
         alignItems='center'
         gap='6rem'
-        px={{sm: '2rem', xl: '0'}}
+        px={{ sm: '2rem', xl: '0' }}
       >
-        <Heading as='h3' fontSize={{md: '2rem', base: '1.3rem'}} textAlign='center' fontFamily='news' color='darkgray'>
+        <Heading
+          as='h3'
+          fontSize={{ md: '2rem', base: '1.3rem' }}
+          textAlign='center'
+          fontFamily='news'
+          color='darkgray'
+        >
           "Who would of thought a bunch of old wizards would of made the jocks
           nervous..."
         </Heading>
-        <Flex gap={{base: '2rem', md: '8rem'}}>
-          <Icon color='dark' h={{lg: '7rem', base: '4rem'}} w={{lg: '7rem', base: '4rem'}} as={FaMedium}></Icon>
-          <Icon color='dark' h={{lg: '7rem', base: '4rem'}} w={{lg: '7rem', base: '4rem'}} as={FaReddit}></Icon>
-          <Icon color='dark' h={{lg: '7rem', base: '4rem'}} w={{lg: '7rem', base: '4rem'}} as={FaPinterest}></Icon>
-          <Icon color='dark' h={{lg: '7rem', base: '4rem'}} w={{lg: '7rem', base: '4rem'}} as={FaEtsy}></Icon>
+        <Flex gap={{ base: '2rem', md: '8rem' }}>
+          <Icon
+            color='dark'
+            h={{ lg: '7rem', base: '4rem' }}
+            w={{ lg: '7rem', base: '4rem' }}
+            as={FaMedium}
+          ></Icon>
+          <Icon
+            color='dark'
+            h={{ lg: '7rem', base: '4rem' }}
+            w={{ lg: '7rem', base: '4rem' }}
+            as={FaReddit}
+          ></Icon>
+          <Icon
+            color='dark'
+            h={{ lg: '7rem', base: '4rem' }}
+            w={{ lg: '7rem', base: '4rem' }}
+            as={FaPinterest}
+          ></Icon>
+          <Icon
+            color='dark'
+            h={{ lg: '7rem', base: '4rem' }}
+            w={{ lg: '7rem', base: '4rem' }}
+            as={FaEtsy}
+          ></Icon>
         </Flex>
       </Flex>
     </Flex>
