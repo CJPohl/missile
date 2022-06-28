@@ -25,21 +25,17 @@ const Checkout = () => {
       handleNotAuth();
     },
   });
-
   // Get cart info
   const cartQuantity = useAppSelector(selectCartQuantity);
   const cartTotal = useAppSelector(selectCartPrice);
   const cartItems = useAppSelector(selectCartItems);
-
   // If cart empty redirect
   const router = useRouter();
   useEffect(() => {
     if (cartItems.length === 0) router.push('/');
   }, [cartItems]);
-
   // Get stripe hook
   const stripeSubmit = useStripeCheckout();
-
   const scale = useBreakpointValue({ md: 55, base: 43 });
   // Map items
   const items = cartItems.map((item: Item) => {
@@ -48,7 +44,6 @@ const Checkout = () => {
       <CheckoutSpellCard key={item.spell._id} item={item} school={school} />
     );
   });
-
   return (
     <Flex
       justifyContent='center'
@@ -89,8 +84,8 @@ const Checkout = () => {
                 <NextLink href='/'>Return</NextLink>
               </Button>
               <Button
-                onClick={() => {
-                  stripeSubmit(cartQuantity, cartTotal, cartItems);
+                onClick={async () => {
+                  await stripeSubmit(cartQuantity, cartTotal, cartItems);
                 }}
                 bgColor='dark'
                 color='white'

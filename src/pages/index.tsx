@@ -1,6 +1,6 @@
 import { Container } from '@chakra-ui/react';
 import axios from 'axios';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import ImgSep from '../components/imgSep/imgSep';
 import Email from '../components/landing/email';
 import Endorsements from '../components/landing/endorsements';
@@ -24,8 +24,8 @@ const Landing = ({ spells }) => {
   );
 };
 
-// Query data for landing spell selection
-export const getStaticProps: GetStaticProps = async () => {
+// // Query data for landing spell selection
+export const getServerSideProps: GetServerSideProps = async () => {
   const { data: spell1 } = await axios.get(
     'http://localhost:3000/api/store/spells/single/62ab7f355bd76023556be6e3'
   );

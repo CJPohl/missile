@@ -13,5 +13,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (!school)
     return res.status(404).json({ errors: [{ msg: 'Schoool not found' }] });
 
-  return res.status(200).json({ school });
+  return res.status(200).json(school);
 };

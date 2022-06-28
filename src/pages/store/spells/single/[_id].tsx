@@ -1,7 +1,7 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import { useBreakpointValue } from '@chakra-ui/media-query';
 import axios from 'axios';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next';
 import AddBtn from '../../../../components/store/cart/add-btn';
 import SpellDescTable from '../../../../components/store/spells/spell-desc-table';
 import useSchool from '../../../../lib/hooks/useSchool';
@@ -11,12 +11,10 @@ import { SpellQuery } from '../../../../lib/models/Spell';
 const Spell = ({ spell }) => {
   const scale = useBreakpointValue({ md: 400, base: 275 });
   const school = useSchool(spell.school, scale);
-
   let descI = 0;
   const descriptions = spell.desc.map((d: string) => (
     <Text key={descI++}>{d}</Text>
   ));
-
   return (
     <Flex justifyContent='center'>
       <Flex
@@ -84,26 +82,36 @@ const Spell = ({ spell }) => {
     </Flex>
   );
 };
+// // Paths for dynamic spells
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const { data: spells } = await axios.get(
+//     'http://localhost:3000/api/store/spells/all'
+//   );
+//   const paths = spells.map((spell: SpellQuery) => ({
+//     params: { _id: spell._id },
+//   }));
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
+// // Fetch props
+// export const getStaticProps: GetStaticProps = async ({ params }) => {
+//   const { data: spell } = await axios.get(
+//     `http://localhost:3000/api/store/spells/single/${params._id}`
+//   );
+//   return {
+//     props: { spell },
+//   };
+// };
 
-// Paths for dynamic spells
-export const getStaticPaths: GetStaticPaths = async () => {
-  const { data: spells } = await axios.get(
-    'http://localhost:3000/api/store/spells/all'
-  );
-  const paths = spells.map((spell: SpellQuery) => ({
-    params: { _id: spell._id },
-  }));
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-// Fetch props
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { query } = context;
+  const { _id } = query;
   const { data: spell } = await axios.get(
-    `http://localhost:3000/api/store/spells/single/${params._id}`
+    `http://localhost:3000/api/store/spells/single/${_id}`
   );
+
   return {
     props: { spell },
   };

@@ -18,5 +18,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (!results)
     return res.status(404).json({ errors: [{ msg: 'No results' }] });
 
-  res.status(200).json({ results });
+  res.status(200).json(results);
 };

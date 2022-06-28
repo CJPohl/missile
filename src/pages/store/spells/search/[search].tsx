@@ -25,11 +25,12 @@ const Search = ({ listing }) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { query } = context;
+  const { search } = query;
   const { data } = await axios.post(`http://localhost:3000/api/store/search`, {
-    name: JSON.stringify(query.search),
+    name: search,
   });
   return {
-    props: { listing: data.results },
+    props: { listing: data },
   };
 };
 
