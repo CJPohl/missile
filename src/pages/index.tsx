@@ -6,9 +6,12 @@ import Email from '../components/landing/email';
 import Endorsements from '../components/landing/endorsements';
 import LandingSelection from '../components/landing/landingSelection';
 import Main from '../components/landing/main';
+import useDisclaimer from '../lib/hooks/useDisclaimer';
 
 // Site landing page
 const Landing = ({ spells }) => {
+  const { disclaimer } = useDisclaimer();
+
   return (
     <Container p='0rem' maxW='100vw'>
       <Main />
@@ -16,6 +19,7 @@ const Landing = ({ spells }) => {
       <LandingSelection spells={spells} />
       <Endorsements />
       <Email />
+      {disclaimer}
     </Container>
   );
 };
