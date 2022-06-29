@@ -33,7 +33,9 @@ const School = ({ school }) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { query } = context;
   const { school } = query;
-  const { data } = await axios.get(`/api/store/schools/${school}`);
+  const { data } = await axios.get(
+    `https://missile.vercel.app/api/store/schools/${school}`
+  );
 
   return {
     props: { school: data },

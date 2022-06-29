@@ -26,9 +26,12 @@ const Search = ({ listing }) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { query } = context;
   const { search } = query;
-  const { data } = await axios.post(`/api/store/search`, {
-    name: search,
-  });
+  const { data } = await axios.post(
+    `https://missile.vercel.app/api/store/search`,
+    {
+      name: search,
+    }
+  );
   return {
     props: { listing: data },
   };

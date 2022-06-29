@@ -29,7 +29,9 @@ const Spell = ({ listing }) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { query } = context;
   const { spells } = query;
-  const { data: listing } = await axios.get(`/api/store/spells/${spells}`);
+  const { data: listing } = await axios.get(
+    `https://missile.vercel.app/api/store/spells/${spells}`
+  );
 
   return {
     props: { listing },
