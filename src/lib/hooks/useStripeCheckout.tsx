@@ -12,7 +12,7 @@ const useStripeCheckout = () => {
     // Checkout session
 
     const { data: checkoutSession } = await axios.post(
-      '/api/checkout_sessions',
+      'https://missile.vercel.app/api/checkout_sessions',
       {
         amount: cartTotal,
         quantity: cartQuantity,
