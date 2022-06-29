@@ -25,8 +25,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       mode: 'payment',
       payment_method_types: ['card'],
       line_items: [...cartItems],
-      success_url: '/store/success',
-      cancel_url: '/store/checkout',
+      success_url: 'https://missile.vercel.app/store/success',
+      cancel_url: 'https://missile.vercel.app/store/checkout',
     };
 
     // Init session
