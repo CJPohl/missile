@@ -8,7 +8,7 @@ const FooterLinks = () => {
   const schoolLinks = schoolList.map((school) => (
     <NextLink
       key={school}
-      href={`http://localhost:3000/store/schools/${school}`}
+      href={`https://missile.vercel.app/store/schools/${school}`}
     >
       <Link textTransform='capitalize'>{school}</Link>
     </NextLink>

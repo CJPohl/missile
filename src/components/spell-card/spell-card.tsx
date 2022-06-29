@@ -7,7 +7,7 @@ const SpellCard = ({ spell, scale }) => {
   // custom hook to render proper svg
   const school = useSchool(spell.school, scale);
   return (
-    <NextLink href={`http://localhost:3000/store/spells/single/${spell._id}`}>
+    <NextLink href={`/store/spells/single/${spell._id}`}>
       <Flex
         direction='column'
         gap='1rem'

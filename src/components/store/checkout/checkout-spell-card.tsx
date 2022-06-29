@@ -7,9 +7,7 @@ const CheckoutSpellCard = ({ item, school }) => {
     <Flex key={item.spell._id} alignItems='center' gap='1rem'>
       <Text>{item.quantity + 'x'}</Text>
       <Box>{school}</Box>
-      <NextLink
-        href={`http://localhost:3000/store/spells/single/${item.spell._id}`}
-      >
+      <NextLink href={`/store/spells/single/${item.spell._id}`}>
         <Text
           cursor='pointer'
           noOfLines={1}

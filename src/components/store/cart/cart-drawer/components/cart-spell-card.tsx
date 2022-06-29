@@ -19,9 +19,7 @@ const CartSpellCard = ({ quantity, spell, scale }) => {
       >
         <ItemCount item={{ spell, quantity }} />
         <Box>{school}</Box>
-        <NextLink
-          href={`http://localhost:3000/store/spells/single/${spell._id}`}
-        >
+        <NextLink href={`/store/spells/single/${spell._id}`}>
           <Text
             cursor='pointer'
             noOfLines={1}

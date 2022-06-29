@@ -26,7 +26,7 @@ const Search = ({ listing }) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { query } = context;
   const { search } = query;
-  const { data } = await axios.post(`http://localhost:3000/api/store/search`, {
+  const { data } = await axios.post(`/api/store/search`, {
     name: search,
   });
   return {

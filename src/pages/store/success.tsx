@@ -61,7 +61,7 @@ const Success = () => {
         p='1.2rem'
         color='white'
       >
-        <NextLink href='http://localhost:3000'>
+        <NextLink href='/'>
           <Link _hover={{ textDecoration: 'none' }}>Return</Link>
         </NextLink>
       </Button>

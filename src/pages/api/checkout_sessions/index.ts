@@ -25,8 +25,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       mode: 'payment',
       payment_method_types: ['card'],
       line_items: [...cartItems],
-      success_url: 'http://localhost:3000/store/success',
-      cancel_url: 'http://localhost:3000/store/checkout',
+      success_url: '/store/success',
+      cancel_url: '/store/checkout',
     };
 
     // Init session

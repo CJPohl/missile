@@ -1,9 +1,8 @@
 import { Flex } from '@chakra-ui/react';
 import axios from 'axios';
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import SchoolDetail from '../../../components/store/schools/school-detail';
 import SchoolList from '../../../components/store/schools/school-list';
-import schoolList from '../../../lib/common/school-list';
 
 // Dynamically show school pages
 const School = ({ school }) => {
@@ -30,34 +29,11 @@ const School = ({ school }) => {
     </Flex>
   );
 };
-// Paths for dynamic schools
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   const paths = schoolList.map((school: string) => ({
-//     params: { school: school },
-//   }));
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// };
-
-// // Fetch props
-// export const getStaticProps: GetStaticProps = async ({ params }) => {
-//   const { data: school } = await axios.get(
-//     `http://localhost:3000/api/store/schools/${params.school}`
-//   );
-//   return {
-//     props: { school },
-//   };
-// };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { query } = context;
   const { school } = query;
-  console.log(query.school);
-  const { data } = await axios.get(
-    `http://localhost:3000/api/store/schools/${school}`
-  );
+  const { data } = await axios.get(`/api/store/schools/${school}`);
 
   return {
     props: { school: data },
